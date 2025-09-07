@@ -1,4 +1,4 @@
-# 🏛️ Site Institucional - Laiza Batista Advocacia
+# 🏛️ Laiza Batista Advocacia - Especialista em Direito Familiar
 
 Site institucional moderno e responsivo para escritório de advocacia, desenvolvido com foco em design elegante, acessibilidade e experiência do usuário.
 
