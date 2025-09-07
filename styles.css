@@ -1,0 +1,995 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #667eea;
+    --secondary: #764ba2;
+    --accent: #4facfe;
+    --dark: #2c3e50;
+    --light: #f8f9fa;
+    --white: #ffffff;
+    --text-dark: #2c3e50;
+    --text-light: #6c757d;
+    --gold: #f7971e;
+    
+    --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    --dark-gradient: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    --gold-gradient: linear-gradient(135deg, #f7971e 0%, #ffd200 100%);
+    
+    --shadow-sm: 0 2px 4px rgba(0,0,0,0.1);
+    --shadow-md: 0 4px 8px rgba(0,0,0,0.12);
+    --shadow-lg: 0 8px 16px rgba(0,0,0,0.15);
+    
+    --radius: 8px;
+    --radius-lg: 12px;
+    
+    --transition: all 0.3s ease;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 25%, #667eea 50%, #764ba2 75%, #f093fb 100%);
+    background-attachment: fixed;
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    overflow-x: hidden;
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+header {
+    background: url('./images/topo.png');
+    background-size: cover;
+    background-position: center;
+    min-height: 60vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.apresentacao {
+    padding: 2.5rem 1.5rem;
+    background: rgba(248, 249, 250, 0.7);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    margin: 1.5rem;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.apresentacao::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+}
+
+.apresentacao-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.apresentacao h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #2c3e50;
+    animation: fadeInUp 1s ease-out;
+}
+
+.apresentacao p {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: #34495e;
+    font-weight: 600;
+    animation: fadeInUp 1s ease-out 0.3s both;
+}
+
+.apresentacao h2 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #667eea;
+    animation: fadeInUp 1s ease-out 0.6s both;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.whatsapp-btn {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 5rem;
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    color: var(--white);
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 1000;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+}
+
+#vlibras-widget {
+    z-index: 1001 !important;
+}
+
+.vw-access-button {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    border-radius: 50% !important;
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3) !important;
+    transition: all 0.3s ease !important;
+}
+
+.vw-access-button:hover {
+    transform: scale(1.1) !important;
+    box-shadow: 0 12px 25px rgba(102, 126, 234, 0.4) !important;
+}
+
+.vw-access-button:before {
+    content: "👋" !important;
+    font-size: 24px !important;
+    color: white !important;
+}
+
+.vw-plugin-wrapper {
+    border-radius: 15px !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15) !important;
+    backdrop-filter: blur(10px) !important;
+}
+
+.vw-plugin-top-wrapper {
+    background: rgba(255, 255, 255, 0.95) !important;
+    border-radius: 15px 15px 0 0 !important;
+    backdrop-filter: blur(10px) !important;
+}
+
+.whatsapp-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.whatsapp-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+.servicos {
+    padding: 2rem 1.5rem;
+    background: rgba(240, 242, 245, 0.6);
+    backdrop-filter: blur(10px);
+    margin: 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.servicos h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--primary);
+}
+
+.servicos p {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    max-width: 500px;
+    margin: 0 auto 1.5rem;
+    line-height: 1.6;
+}
+
+.destaques {
+    padding: 2.5rem 1.5rem;
+    background: rgba(245, 247, 250, 0.6);
+    backdrop-filter: blur(10px);
+    margin: 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    color: var(--text-dark);
+}
+
+.destaques-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.destaques h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--dark);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 1.5rem 0.8rem;
+    background: rgba(248, 249, 250, 0.7);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    border: 1px solid #e9ecef;
+    transition: var(--transition);
+}
+
+.stat-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.stat-number {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.stat-label {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-light);
+}
+
+.diferenciais-principais {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.diferencial-principal {
+    text-align: center;
+    padding: 1.5rem;
+    background: rgba(248, 249, 250, 0.7);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    border: 1px solid #e9ecef;
+    transition: var(--transition);
+}
+
+.diferencial-principal:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+}
+
+.diferencial-principal .icone {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.diferencial-principal h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--dark);
+}
+
+.diferencial-principal p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-light);
+}
+
+.sobre-nos {
+    padding: 2rem 1.5rem;
+    background: rgba(250, 251, 252, 0.6);
+    backdrop-filter: blur(10px);
+    margin: 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    color: var(--text-dark);
+}
+
+.sobre-conteudo {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.sobre-nos h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--dark);
+}
+
+.sobre-nos p {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--text-light);
+}
+
+.servicos-lista {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.servico-item {
+    background: rgba(248, 249, 250, 0.7);
+    padding: 1.5rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+    border: 1px solid #e9ecef;
+    position: relative;
+    overflow: hidden;
+}
+
+.servico-item:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+}
+
+.servico-item.centralizado {
+    text-align: center;
+}
+
+.servico-item h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1.2rem;
+    color: var(--dark);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.servico-item ul {
+    list-style: none;
+    padding: 0;
+}
+
+.servico-item li {
+    margin-bottom: 0.6rem;
+    position: relative;
+    padding-left: 1.5rem;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.servico-item li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.chamada-final {
+    text-align: center;
+    margin-top: 3rem;
+    padding: 2.5rem;
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    border: 1px solid #e9ecef;
+}
+
+.chamada-final p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+.diferenciais {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.diferencial {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    border: 1px solid #dee2e6;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-dark);
+    transition: var(--transition);
+}
+
+.diferencial:hover {
+    background: var(--primary);
+    color: var(--white);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+.depoimentos {
+    padding: 2rem 1.5rem;
+    background: rgba(44, 62, 80, 0.6);
+    backdrop-filter: blur(10px);
+    margin: 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    color: var(--white);
+}
+
+.depoimentos h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #4facfe;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 1.2rem;
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--white);
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.card p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+
+.card h3 {
+    font-weight: 600;
+    color: var(--gold);
+    font-size: 0.9rem;
+}
+
+.footer-endereco {
+    background: rgba(26, 37, 47, 0.6);
+    backdrop-filter: blur(10px);
+    padding: 2rem 1.5rem;
+    text-align: center;
+    margin: 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.divisor-footer {
+    width: 60%;
+    height: 2px;
+    background: #f7971e;
+    margin: 0 auto 2rem;
+    border-radius: 2px;
+}
+
+.caixa-endereco {
+    border: 2px solid var(--gold);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem 2rem;
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    transition: var(--transition);
+}
+
+.caixa-endereco:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+.caixa-endereco p {
+    color: var(--white);
+    margin: 0.5rem 0;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.footer-info {
+    margin-top: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.criado-por {
+    color: var(--white);
+    font-size: 0.9rem;
+    font-weight: 400;
+    margin: 0;
+    opacity: 0.8;
+}
+
+.linkedin-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    color: var(--white);
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.linkedin-btn:hover {
+    background: rgba(0, 119, 181, 0.2);
+    border-color: rgba(0, 119, 181, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 119, 181, 0.3);
+    color: #0077b5;
+}
+
+.linkedin-btn svg {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.3s ease;
+}
+
+.linkedin-btn:hover svg {
+    transform: scale(1.1);
+}
+
+@media (max-width: 1200px) {
+    .servicos-lista {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.2rem;
+    }
+    
+    .stats-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.2rem;
+    }
+    
+    .diferenciais-principais {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.2rem;
+    }
+    
+    .card-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.2rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    header {
+        min-height: 35vh;
+        background-size: cover;
+        background-position: center top;
+    }
+    
+    .servicos-lista {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    
+    .diferenciais-principais {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    
+    .card-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1rem;
+    }
+    
+    .apresentacao h1 {
+        font-size: 2.5rem;
+    }
+    
+    .apresentacao p {
+        font-size: 1.1rem;
+    }
+    
+    .apresentacao h2 {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        min-height: 25vh;
+        background-size: cover;
+        background-position: center top;
+        background-attachment: scroll;
+    }
+
+    .apresentacao {
+        padding: 2rem 1rem;
+    }
+
+    .apresentacao h1 {
+        font-size: 2rem;
+    }
+
+    .apresentacao p {
+        font-size: 1rem;
+    }
+
+    .apresentacao h2 {
+        font-size: 1.2rem;
+    }
+
+    .whatsapp-btn {
+        bottom: 1rem;
+        right: 4rem;
+        padding: 0.7rem 1.2rem;
+        font-size: 0.8rem;
+    }
+    
+    .vw-access-button {
+        width: 50px !important;
+        height: 50px !important;
+        bottom: 1rem !important;
+        right: 1rem !important;
+    }
+    
+    .vw-access-button:before {
+        font-size: 20px !important;
+    }
+    
+    .servicos, .sobre-nos, .depoimentos, .destaques, .apresentacao, .footer-endereco {
+        padding: 1.5rem 1rem;
+        margin: 1rem;
+    }
+    
+    .footer-info {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.8rem;
+    }
+    
+    .linkedin-btn {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.75rem;
+    }
+    
+    .linkedin-btn svg {
+        width: 14px;
+        height: 14px;
+    }
+    
+    .criado-por {
+        font-size: 0.8rem;
+    }
+    
+    .servicos-lista {
+        grid-template-columns: 1fr;
+    }
+    
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    
+    .diferenciais-principais {
+        grid-template-columns: 1fr;
+    }
+    
+    .diferenciais {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .caixa-endereco {
+        padding: 1rem 1.5rem;
+        width: 90%;
+    }
+    
+    .divisor-footer {
+        width: 50%;
+    }
+}
+
+@media (max-width: 480px) {
+    .servicos, .sobre-nos, .depoimentos {
+        padding: 1.5rem 1rem;
+    }
+    
+    .servico-item, .card {
+        padding: 1.2rem;
+    }
+    
+    .chamada-final {
+        padding: 1.5rem;
+    }
+    
+    .diferencial {
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.servico-item, .card {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.servico-item:nth-child(2) { animation-delay: 0.1s; }
+.servico-item:nth-child(3) { animation-delay: 0.2s; }
+.servico-item:nth-child(4) { animation-delay: 0.3s; }
+
+.card:nth-child(2) { animation-delay: 0.1s; }
+.card:nth-child(3) { animation-delay: 0.3s; }
+
+@media (max-width: 480px) {
+    header {
+        min-height: 20vh;
+        background-size: cover;
+        background-position: center top;
+        background-attachment: scroll;
+        background-repeat: no-repeat;
+    }
+
+    .apresentacao h1 {
+        font-size: 1.8rem;
+        margin-bottom: 0.6rem;
+    }
+
+    .apresentacao p {
+        font-size: 0.9rem;
+        margin-bottom: 0.6rem;
+    }
+
+    .apresentacao h2 {
+        font-size: 1rem;
+    }
+    
+    .servicos h2, .destaques h2, .depoimentos h2 {
+        font-size: 1.2rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .servicos p, .destaques p {
+        font-size: 0.8rem;
+        margin-bottom: 1rem;
+    }
+    
+    .servicos-lista {
+        gap: 0.6rem;
+        margin: 1rem 0;
+    }
+    
+    .servico-item h4 {
+        font-size: 0.9rem;
+        margin-bottom: 0.4rem;
+    }
+    
+    .servico-item p {
+        font-size: 0.8rem;
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 0.6rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .stat-item {
+        padding: 1rem 0.5rem;
+    }
+    
+    .stat-number {
+        font-size: 1.5rem;
+        margin-bottom: 0.2rem;
+    }
+    
+    .stat-label {
+        font-size: 0.75rem;
+    }
+    
+    .diferenciais-principais {
+        gap: 0.6rem;
+    }
+    
+    .diferencial-principal h3 {
+        font-size: 0.9rem;
+        margin-bottom: 0.4rem;
+    }
+    
+    .diferencial-principal p {
+        font-size: 0.8rem;
+    }
+    
+    .card-grid {
+        gap: 0.6rem;
+        margin-top: 1rem;
+    }
+    
+    .card h4 {
+        font-size: 0.9rem;
+        margin-bottom: 0.4rem;
+    }
+    
+    .card p {
+        font-size: 0.8rem;
+    }
+    
+    .whatsapp-btn {
+        bottom: 0.8rem;
+        right: 3.5rem;
+        padding: 0.6rem 1rem;
+        font-size: 0.75rem;
+    }
+    
+    .vw-access-button {
+        width: 45px !important;
+        height: 45px !important;
+        bottom: 0.8rem !important;
+        right: 0.8rem !important;
+    }
+    
+    .vw-access-button:before {
+        font-size: 18px !important;
+    }
+    
+    .footer-info {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.6rem;
+    }
+    
+    .linkedin-btn {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.75rem;
+    }
+    
+    .linkedin-btn svg {
+        width: 14px;
+        height: 14px;
+    }
+    
+    .criado-por {
+        font-size: 0.8rem;
+    }
+    
+    .caixa-endereco p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 320px) {
+    header {
+        min-height: 15vh;
+        background-size: cover;
+        background-position: center top;
+        background-attachment: scroll;
+        background-repeat: no-repeat;
+    }
+    
+    .apresentacao h1 {
+        font-size: 1.6rem;
+    }
+
+    .apresentacao p {
+        font-size: 0.85rem;
+    }
+
+    .apresentacao h2 {
+        font-size: 0.9rem;
+    }
+    
+    .servicos, .sobre-nos, .depoimentos, .destaques, .footer-endereco {
+        padding: 1rem 0.6rem;
+        margin: 0.6rem;
+    }
+    
+    .servicos h2, .destaques h2, .depoimentos h2 {
+        font-size: 1.1rem;
+    }
+    
+    .whatsapp-btn {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.7rem;
+    }
+    
+    .vw-access-button {
+        width: 40px !important;
+        height: 40px !important;
+    }
+    
+    .vw-access-button:before {
+        font-size: 16px !important;
+    }
+}
+
+@media (max-width: 768px) and (orientation: landscape) {
+    header {
+        min-height: 15vh;
+        background-size: cover;
+        background-position: center top;
+    }
+}
+
+@media (max-width: 480px) and (orientation: landscape) {
+    header {
+        min-height: 12vh;
+        background-size: cover;
+        background-position: center top;
+    }
+}
