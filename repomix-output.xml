@@ -1,0 +1,1217 @@
+This file is a merged representation of the entire codebase, combined into a single document by Repomix.
+
+<file_summary>
+This section contains a summary of this file.
+
+<purpose>
+This file contains a packed representation of the entire repository's contents.
+It is designed to be easily consumable by AI systems for analysis, code review,
+or other automated processes.
+</purpose>
+
+<file_format>
+The content is organized as follows:
+1. This summary section
+2. Repository information
+3. Directory structure
+4. Repository files (if enabled)
+5. Multiple file entries, each consisting of:
+  - File path as an attribute
+  - Full contents of the file
+</file_format>
+
+<usage_guidelines>
+- This file should be treated as read-only. Any changes should be made to the
+  original repository files, not this packed version.
+- When processing this file, use the file path to distinguish
+  between different files in the repository.
+- Be aware that this file may contain sensitive information. Handle it with
+  the same level of security as you would the original repository.
+</usage_guidelines>
+
+<notes>
+- Some files may have been excluded based on .gitignore rules and Repomix's configuration
+- Binary files are not included in this packed representation. Please refer to the Repository Structure section for a complete list of file paths, including binary files
+- Files matching patterns in .gitignore are excluded
+- Files matching default ignore patterns are excluded
+- Files are sorted by Git change count (files with more changes are at the bottom)
+</notes>
+
+</file_summary>
+
+<directory_structure>
+.impeccable/
+  live/
+    config.json
+app/
+  assets/
+    images/
+      foto 1 cruzando os braços.webp
+      foto 2 fingindo que sabe ler.webp
+      foto 3 se achando.webp
+      foto 4 fingindo que sabe escrever.webp
+      foto 5 perfil.webp
+    logos/
+      Logo (png)/
+        icon bege.png
+        icon vinho.png
+        icon.png
+        logo ass bege.png
+        logo ass vinho.png
+        logo ass.png
+        logo simples bege.png
+        logo simples vinho.png
+        logo simples.png
+  components/
+    Contato.tsx
+    Footer.tsx
+    Hero.tsx
+    Nav.tsx
+    Servicos.tsx
+    Sobre.tsx
+  public/
+    images/
+      foto-2.webp
+      foto-5.webp
+  favicon.ico
+  globals.css
+  layout.tsx
+  page.tsx
+public/
+  images/
+    foto-1.webp
+    foto-2.webp
+    foto-3.webp
+    foto-4.webp
+    foto-5.webp
+    og-image.webp
+  logos/
+    icon-bege.png
+    icon-vinho.png
+    icon.png
+    logo-ass-bege.png
+    logo-ass-vinho.png
+    logo-ass.png
+    logo-simples-bege.png
+    logo-simples-vinho.png
+    logo-simples.png
+  file.svg
+  globe.svg
+  next.svg
+  site.webmanifest
+  vercel.svg
+  window.svg
+.gitignore
+eslint.config.mjs
+next.config.ts
+package.json
+postcss.config.mjs
+PRODUCT.md
+README.md
+tsconfig.json
+</directory_structure>
+
+<files>
+This section contains the contents of the repository's files.
+
+<file path=".impeccable/live/config.json">
+{
+  "files": ["app/layout.tsx"],
+  "insertBefore": "</body>",
+  "commentSyntax": "jsx",
+  "cspChecked": true
+}
+</file>
+
+<file path="app/components/Contato.tsx">
+"use client";
+
+import { useState, type FormEvent } from "react";
+
+type Status = "idle" | "sending" | "success" | "error";
+
+export default function Contato() {
+  const [status, setStatus] = useState<Status>("idle");
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setStatus("sending");
+
+    const form = e.currentTarget;
+    const data = new FormData(form);
+
+    fetch("https://formspree.io/f/placeholder", {
+      method: "POST",
+      body: data,
+      headers: { Accept: "application/json" },
+    })
+      .then((res) => {
+        if (res.ok) {
+          setStatus("success");
+          form.reset();
+        } else {
+          setStatus("error");
+        }
+      })
+      .catch(() => setStatus("error"));
+  };
+
+  return (
+    <section id="contato" className="bg-bg px-6 py-20 lg:px-12 lg:py-28">
+      <div className="mx-auto max-w-6xl">
+        <div className="mb-14 lg:mb-20">
+          <h2 className="mb-4 font-serif text-[clamp(2rem,4vw+0.5rem,3.5rem)] font-semibold leading-[1.1] tracking-[-0.02em] text-ink-rich [text-wrap:balance]">
+            Entre em contato
+          </h2>
+          <p className="max-w-[62ch] text-lg leading-relaxed text-muted lg:text-xl">
+            Preencha o formulário ou fale diretamente conosco pelo WhatsApp.
+            Retornaremos em breve.
+          </p>
+        </div>
+
+        <div className="grid gap-10 lg:grid-cols-[1fr_360px] lg:gap-16">
+      <form
+        onSubmit={handleSubmit}
+        noValidate
+        className="flex flex-col gap-6"
+      >
+            <div className="grid gap-6 sm:grid-cols-2">
+              <label className="flex flex-col gap-1.5">
+                <span className="text-sm font-medium text-ink">
+                  Nome <span aria-hidden="true" className="text-error">*</span>
+                </span>
+                <input
+                  type="text"
+                  name="nome"
+                  required
+                  placeholder="Seu nome completo"
+                  className="h-12 rounded-lg border border-border bg-bg px-4 text-base text-ink placeholder:text-muted-light transition-colors hover:border-border-strong focus:border-primary focus:ring-0 focus:outline-none focus-visible:border-primary"
+                />
+              </label>
+              <label className="flex flex-col gap-1.5">
+                <span className="text-sm font-medium text-ink">
+                  Email ou telefone{" "}
+                  <span aria-hidden="true" className="text-error">*</span>
+                </span>
+                <input
+                  type="text"
+                  name="contato"
+                  required
+                  placeholder="seu@email.com ou (00) 00000-0000"
+                  className="h-12 rounded-lg border border-border bg-bg px-4 text-base text-ink placeholder:text-muted-light transition-colors hover:border-border-strong focus:border-primary focus:ring-0 focus:outline-none focus-visible:border-primary"
+                />
+              </label>
+            </div>
+            <label className="flex flex-col gap-1.5">
+              <span className="text-sm font-medium text-ink">
+                Mensagem{" "}
+                <span aria-hidden="true" className="text-error">*</span>
+              </span>
+              <textarea
+                name="mensagem"
+                required
+                rows={5}
+                placeholder="Descreva brevemente seu caso ou dúvida"
+                className="resize-y rounded-lg border border-border bg-bg px-4 py-3 text-base text-ink placeholder:text-muted-light transition-colors hover:border-border-strong focus:border-primary focus:ring-0 focus:outline-none focus-visible:border-primary"
+              />
+            </label>
+
+            <button
+              type="submit"
+              disabled={status === "sending"}
+              className="inline-flex h-12 w-fit items-center rounded-full bg-primary px-10 text-sm font-semibold text-white transition-all duration-300 hover:bg-primary-deep focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white disabled:opacity-60"
+            >
+              {status === "sending" ? (
+                <span className="flex items-center gap-2">
+                  <svg
+                    className="h-4 w-4 animate-spin"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    aria-hidden="true"
+                  >
+                    <circle
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      strokeWidth="3"
+                      className="opacity-25"
+                    />
+                    <path
+                      d="M4 12a8 8 0 018-8"
+                      stroke="currentColor"
+                      strokeWidth="3"
+                      strokeLinecap="round"
+                      className="opacity-75"
+                    />
+                  </svg>
+                  Enviando…
+                </span>
+              ) : (
+                "Enviar mensagem"
+              )}
+            </button>
+
+            {status === "success" && (
+              <div
+                role="status"
+                className="rounded-lg border border-success/30 bg-success/8 px-5 py-4 text-base text-success"
+              >
+                Mensagem enviada com sucesso. Retornaremos em breve.
+              </div>
+            )}
+            {status === "error" && (
+              <div
+                role="alert"
+                className="rounded-lg border border-error/30 bg-error/8 px-5 py-4 text-base text-error"
+              >
+                Não foi possível enviar. Tente novamente ou fale conosco
+                pelo WhatsApp.
+              </div>
+            )}
+          </form>
+
+          <aside className="flex flex-col gap-8 rounded-xl bg-surface p-8 lg:p-10">
+            <div>
+              <p className="mb-1 text-xs font-semibold tracking-[0.06em] text-muted-light uppercase">
+                WhatsApp
+              </p>
+              <a
+                href="https://wa.me/5500000000000?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-base font-medium text-primary transition-colors hover:text-primary-deep focus-visible:outline-2 focus-visible:outline-primary"
+              >
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                </svg>
+                (00) 00000-0000
+              </a>
+            </div>
+            <div>
+              <p className="mb-1 text-xs font-semibold tracking-[0.06em] text-muted-light uppercase">
+                Email
+              </p>
+              <a
+                href="mailto:contato@laizaadv.com.br"
+                className="text-base font-medium text-primary transition-colors hover:text-primary-deep focus-visible:outline-2 focus-visible:outline-primary"
+              >
+                contato@laizaadv.com.br
+              </a>
+            </div>
+            <div>
+              <p className="mb-1 text-xs font-semibold tracking-[0.06em] text-muted-light uppercase">
+                Endereço
+              </p>
+              <p className="text-base leading-relaxed text-ink-rich">
+                Rua Exemplo, 123 — Sala 202
+                <br />
+                Centro — Cidade, UF
+                <br />
+                CEP 00000-000
+              </p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  );
+}
+</file>
+
+<file path="app/components/Footer.tsx">
+export default function Footer() {
+  return (
+    <footer className="border-t border-border bg-surface px-6 py-14 lg:px-12 lg:py-16">
+      <div className="mx-auto grid max-w-6xl gap-10 sm:grid-cols-[1fr_auto] sm:items-start sm:gap-8">
+        <div className="flex flex-col gap-3">
+          <div className="flex items-center gap-2">
+            <img
+              src="/logos/logo-simples.png"
+              alt=""
+              className="h-7 w-auto"
+              aria-hidden="true"
+            />
+            <p className="font-serif text-lg font-semibold tracking-tight text-ink-rich">
+              Laiza Advocacia
+            </p>
+          </div>
+          <p className="max-w-[42ch] text-sm leading-relaxed text-muted">
+            Assessoria jurídica com excelência e dedicação.
+          </p>
+        </div>
+        <nav
+          aria-label="Rodapé"
+          className="flex flex-wrap gap-x-8 gap-y-2 text-sm text-muted-light sm:justify-end"
+        >
+          <a href="#hero" className="transition-colors hover:text-ink">Início</a>
+          <a href="#servicos" className="transition-colors hover:text-ink">Atuação</a>
+          <a href="#sobre" className="transition-colors hover:text-ink">Sobre</a>
+          <a href="#contato" className="transition-colors hover:text-ink">Contato</a>
+        </nav>
+      </div>
+      <div className="mx-auto mt-12 max-w-6xl border-t border-border pt-6">
+        <p className="text-xs text-muted-light">
+          &copy; {new Date().getFullYear()} Laiza Advocacia. Todos os direitos
+          reservados.
+        </p>
+      </div>
+    </footer>
+  );
+}
+</file>
+
+<file path="app/components/Hero.tsx">
+export default function Hero() {
+  return (
+    <section
+      id="hero"
+      // teste  Removido `bg-primary-deep` e substituído por `bg-black`
+      className="relative flex min-h-dvh items-center overflow-hidden bg-primary-deep px-6 py-24 lg:px-12 lg:py-28"
+    >
+      <div className="mx-auto grid w-full max-w-6xl items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14">
+        <div className="max-w-3xl">
+          <p className="mb-6 font-sans text-sm font-medium tracking-[0.08em] text-primary-light/80 opacity-0 animate-[fadeIn_600ms_cubic-bezier(0.16,1,0.3,1)_100ms_forwards]">
+            LAÍZA ADVOCACIA
+          </p>
+          <h1 className="mb-8 font-serif text-[clamp(2.5rem,6vw+0.5rem,5rem)] font-semibold leading-[1.05] tracking-[-0.025em] text-white [text-wrap:balance] opacity-0 animate-[fadeIn_600ms_cubic-bezier(0.16,1,0.3,1)_200ms_forwards]">
+            Assessoria jurídica
+            <br />
+            com excelência
+            <br />
+            e dedicação
+          </h1>
+          <p className="mb-12 max-w-[58ch] text-lg leading-relaxed text-primary-light/70 lg:text-xl opacity-0 animate-[fadeIn_600ms_cubic-bezier(0.16,1,0.3,1)_300ms_forwards]">
+            Atendimento personalizado e soluções jurídicas seguras para
+            proteger o que é mais importante para você.
+          </p>
+          <div className="flex flex-wrap gap-4 opacity-0 animate-[fadeIn_600ms_cubic-bezier(0.16,1,0.3,1)_400ms_forwards]">
+            <a
+              href="#contato"
+              className="inline-flex h-12 items-center rounded-full bg-primary px-8 text-sm font-semibold text-white transition-all duration-300 hover:bg-primary-light hover:shadow-[0_4px_24px_oklch(0.45_0.18_261/0.3)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+            >
+              Agende uma consulta
+            </a>
+            <a
+              href="#servicos"
+              className="inline-flex h-12 items-center rounded-full border border-white/25 px-8 text-sm font-semibold text-white transition-all duration-300 hover:border-white/50 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+            >
+              Conheça nossos serviços
+            </a>
+          </div>
+        </div>
+
+        <div className="relative order-first lg:order-last">
+          <div
+            className="relative aspect-[4/5] overflow-hidden rounded-xl opacity-0 animate-[slideIn_2200ms_cubic-bezier(0.22,1,0.36,1)_100ms_forwards]"
+            style={{ maxHeight: "clamp(440px, 70vh, 760px)" }}
+          >
+            <div className="absolute inset-0 bg-gradient-to-br from-primary-deep/20 to-transparent mix-blend-multiply" />
+            <img
+              src="/images/foto-2.webp"
+              alt="Laiza Advocacia"
+              width={1375}
+              height={3100}
+              className="h-full w-full object-cover object-top"
+              loading="eager"
+              fetchPriority="high"
+            />
+            <div className="absolute inset-0 shadow-[inset_0_1px_0_0_oklch(1_0_0/0.08),inset_0_-1px_0_0_oklch(0_0_0/0.12)] rounded-xl pointer-events-none" />
+          </div>
+        </div>
+      </div>
+
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 opacity-[0.04]"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle at 25% 40%, white, transparent 70%)",
+        }}
+      />
+    </section>
+  );
+}
+</file>
+
+<file path="app/components/Nav.tsx">
+"use client";
+
+import { useState, useEffect } from "react";
+
+const navLinks = [
+  { label: "Início", href: "#hero" },
+  { label: "Atuação", href: "#servicos" },
+  { label: "Sobre", href: "#sobre" },
+  { label: "Contato", href: "#contato" },
+];
+
+export default function Nav() {
+  const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 32);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [open]);
+
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open]);
+
+  return (
+    <header
+      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
+        scrolled || open
+          ? "bg-bg/95 backdrop-blur-sm border-b border-border"
+          : "bg-transparent"
+      }`}
+    >
+      <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 lg:px-12">
+        <a
+          href="#hero"
+          className="flex items-center gap-2 font-serif text-lg font-semibold tracking-tight text-ink-rich transition-colors hover:text-primary"
+          aria-label="Laiza Advocacia - Início"
+        >
+          <img
+            src="/logos/logo-simples.png"
+            alt=""
+            className="h-8 w-auto"
+            aria-hidden="true"
+          />
+          <span>Laiza Advocacia</span>
+        </a>
+
+        <ul className="hidden items-center gap-8 md:flex">
+          {navLinks.map((link) => (
+            <li key={link.href}>
+              <a
+                href={link.href}
+                className="text-sm font-medium text-muted transition-colors hover:text-ink focus-visible:outline-2 focus-visible:outline-primary"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+          <li>
+            <a
+              href="#contato"
+              className="inline-flex h-9 items-center rounded-full bg-primary px-4 text-sm font-semibold text-white transition-colors hover:bg-primary-deep focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+            >
+              Fale Conosco
+            </a>
+          </li>
+        </ul>
+
+        <button
+          className="flex h-10 w-10 items-center justify-center rounded-md md:hidden"
+          onClick={() => setOpen(!open)}
+          aria-label={open ? "Fechar menu" : "Abrir menu"}
+          aria-expanded={open}
+        >
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            aria-hidden="true"
+            className="text-ink"
+          >
+            {open ? (
+              <path d="M5 5l10 10M15 5l-10 10" />
+            ) : (
+              <path d="M3 6h14M3 10h14M3 14h14" />
+            )}
+          </svg>
+        </button>
+      </nav>
+
+      {open && (
+        <div className="border-t border-border bg-bg md:hidden">
+          <ul className="flex flex-col gap-1 px-6 py-4">
+            {navLinks.map((link) => (
+              <li key={link.href}>
+                <a
+                  href={link.href}
+                  className="block rounded-md px-3 py-3 text-base font-medium text-muted transition-colors hover:bg-surface hover:text-ink focus-visible:outline-2 focus-visible:outline-primary"
+                  onClick={() => setOpen(false)}
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+            <li className="pt-2">
+              <a
+                href="#contato"
+                className="flex h-11 items-center justify-center rounded-full bg-primary text-sm font-semibold text-white transition-colors hover:bg-primary-deep focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                onClick={() => setOpen(false)}
+              >
+                Fale Conosco
+              </a>
+            </li>
+          </ul>
+        </div>
+      )}
+    </header>
+  );
+}
+</file>
+
+<file path="app/components/Servicos.tsx">
+const areas = [
+  {
+    title: "Direito da Família",
+    description:
+      "Divórcio, guarda de filhos, pensão alimentícia e proteção do bem-estar familiar com sensibilidade e firmeza jurídica.",
+    accent: "oklch(0.72 0.12 85)",
+  },
+  {
+    title: "Direito Trabalhista",
+    description:
+      "Relações entre empregadores e empregados, rescisões, horas extras, assédio moral e defesa de direitos trabalhistas.",
+    accent: "oklch(0.65 0.1 160)",
+  },
+  {
+    title: "Direito Cível",
+    description:
+      "Contratos, indenizações, responsabilidade civil e defesa do consumidor. Segurança jurídica nas relações cotidianas.",
+    accent: "oklch(0.58 0.16 261)",
+  },
+  {
+    title: "Direito Previdenciário",
+    description:
+      "Aposentadorias, pensões, auxílios e benefícios. Planejamento previdenciário e defesa junto ao INSS.",
+    accent: "oklch(0.52 0.12 30)",
+  },
+  {
+    title: "Inventário e Sucessões",
+    description:
+      "Processos de inventário judicial e extrajudicial, planejamento sucessório e partilha de bens com eficiência.",
+    accent: "oklch(0.55 0.1 290)",
+  },
+];
+
+export default function Servicos() {
+  return (
+    <section
+      id="servicos"
+      className="bg-bg px-6 py-20 lg:px-12 lg:py-28"
+    >
+      <div className="mx-auto max-w-6xl">
+        <div className="mb-14 lg:mb-20">
+          <h2 className="mb-4 font-serif text-[clamp(2rem,4vw+0.5rem,3.5rem)] font-semibold leading-[1.1] tracking-[-0.02em] text-ink-rich [text-wrap:balance]">
+            Áreas de atuação
+          </h2>
+          <p className="max-w-[62ch] text-lg leading-relaxed text-muted lg:text-xl">
+            Soluções jurídicas em diversas áreas, sempre com atendimento
+            personalizado e foco em resultados.
+          </p>
+        </div>
+
+        <div className="grid gap-px overflow-hidden rounded-xl bg-border sm:grid-cols-2 lg:grid-cols-6">
+          {areas.map((area, i) => (
+            <div
+              key={i}
+              className={`relative bg-bg p-8 transition-colors hover:bg-surface lg:p-10 ${
+                i === 0
+                  ? "sm:col-span-2 lg:col-span-3 lg:row-span-2"
+                  : i === 1
+                  ? "sm:col-span-2 lg:col-span-3"
+                  : "sm:col-span-1 lg:col-span-2"
+              }`}
+            >
+              <div
+                className="mb-5 h-1 w-10 rounded-full"
+                style={{ background: area.accent }}
+                aria-hidden="true"
+              />
+              <h3 className="mb-3 font-serif text-xl font-semibold leading-tight text-ink-rich lg:text-2xl">
+                {area.title}
+              </h3>
+              <p className="max-w-[55ch] text-base leading-relaxed text-muted lg:text-lg">
+                {area.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+</file>
+
+<file path="app/components/Sobre.tsx">
+export default function Sobre() {
+  return (
+    <section id="sobre" className="bg-surface px-6 py-20 lg:px-12 lg:py-24">
+      <div className="mx-auto max-w-6xl">
+        <div className="grid items-center gap-10 lg:grid-cols-[0.9fr_1fr] lg:gap-14">
+          <div>
+            <div className="relative aspect-[4/5] overflow-hidden rounded-xl" style={{ maxHeight: "clamp(380px, 60vh, 540px)" }}>
+              <img
+                src="/images/foto-5.webp"
+                alt="Laiza - Advogada fundadora"
+                className="h-full w-full object-cover object-center"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 shadow-[inset_0_1px_0_0_oklch(1_0_0/0.08),inset_0_-1px_0_0_oklch(0_0_0/0.06)] rounded-xl pointer-events-none" />
+            </div>
+          </div>
+          <div className="flex flex-col justify-center">
+            <h2 className="mb-6 font-serif text-[clamp(2rem,4vw+0.5rem,3.5rem)] font-semibold leading-[1.1] tracking-[-0.02em] text-ink-rich [text-wrap:balance]">
+              Sobre o escritório
+            </h2>
+            <div className="max-w-[62ch] space-y-5 text-base leading-relaxed text-muted lg:text-lg">
+              <p>
+                O escritório Laiza Advocacia nasceu do compromisso com a
+                excelência jurídica e o atendimento humanizado. Cada caso é
+                tratado com a atenção que merece, unindo conhecimento
+                técnico e sensibilidade.
+              </p>
+              <p>
+                Atuamos com transparência e dedicação, oferecendo soluções
+                jurídicas personalizadas para cada cliente — seja pessoa
+                física ou empresa — sempre buscando o melhor resultado com
+                ética e responsabilidade.
+              </p>
+              <p>
+                Nosso atendimento é presencial e online, permitindo
+                assessoria completa independentemente da sua localização.
+              </p>
+            </div>
+            <div className="mt-8 flex flex-col gap-5 rounded-xl bg-bg p-6 lg:flex-row lg:p-8">
+              <div className="flex-1">
+                <p className="mb-1 text-xs font-semibold tracking-[0.06em] text-muted-light uppercase">
+                  Missão
+                </p>
+                <p className="text-base leading-relaxed text-ink-rich">
+                  Garantir acesso à justiça de qualidade com atendimento
+                  próximo e personalizado.
+                </p>
+              </div>
+              <div className="flex-1">
+                <p className="mb-1 text-xs font-semibold tracking-[0.06em] text-muted-light uppercase">
+                  Valores
+                </p>
+                <p className="text-base leading-relaxed text-ink-rich">
+                  Ética, transparência, dedicação e respeito em cada relação
+                  com o cliente.
+                </p>
+              </div>
+              <div className="flex-1">
+                <p className="mb-1 text-xs font-semibold tracking-[0.06em] text-muted-light uppercase">
+                  Atendimento
+                </p>
+                <p className="text-base leading-relaxed text-ink-rich">
+                  Presencial e online — em todo o Brasil.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+</file>
+
+<file path="app/globals.css">
+@import "tailwindcss";
+
+@theme inline {
+  --color-primary: oklch(0.45 0.18 261);
+  --color-primary-deep: oklch(0.32 0.14 261);
+  --color-primary-light: oklch(0.62 0.12 261);
+  --color-bg: oklch(0.985 0 0);
+  --color-surface: oklch(0.945 0.006 261);
+  --color-surface-alt: oklch(0.96 0.003 261);
+  --color-ink: oklch(0.18 0.014 261);
+  --color-ink-rich: oklch(0.12 0.01 261);
+  --color-accent: oklch(0.72 0.12 85);
+  --color-accent-dim: oklch(0.55 0.1 85);
+  --color-muted: oklch(0.46 0.012 261);
+  --color-muted-light: oklch(0.46 0.008 261);
+  --color-border: oklch(0.88 0.004 261);
+  --color-border-strong: oklch(0.78 0.008 261);
+  --color-success: oklch(0.62 0.16 145);
+  --color-error: oklch(0.52 0.18 20);
+
+  --font-serif: var(--font-serif);
+  --font-sans: var(--font-sans);
+
+  --text-body: 1rem;
+  --text-body-lg: 1.125rem;
+  --leading-body: 1.65;
+  --leading-tight: 1.1;
+  --tracking-display: -0.025em;
+  --tracking-heading: -0.02em;
+  --tracking-caps: 0.08em;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-weight: 400;
+  line-height: var(--leading-body);
+  font-optical-sizing: auto;
+  font-kerning: normal;
+  font-variant-ligatures: common-ligatures;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3 {
+  font-optical-sizing: auto;
+  font-kerning: normal;
+}
+
+*:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-80px);
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+::selection {
+  background: oklch(0.45 0.18 261 / 0.25);
+  color: var(--color-ink);
+}
+</file>
+
+<file path="app/layout.tsx">
+import type { Metadata } from "next";
+import { Source_Serif_4, Work_Sans } from "next/font/google";
+import "./globals.css";
+
+const sourceSerif = Source_Serif_4({
+  variable: "--font-serif",
+  subsets: ["latin"],
+  axes: ["opsz"],
+  weight: "variable",
+});
+
+const workSans = Work_Sans({
+  variable: "--font-sans",
+  subsets: ["latin"],
+  weight: "variable",
+  display: "swap",
+});
+
+export const metadata: Metadata = {
+  title: "Laiza Advocacia",
+  description:
+    "Assessoria jurídica com excelência e dedicação. Atendimento personalizado para proteger seus direitos.",
+  metadataBase: new URL("https://laizaadv.com.br"),
+  openGraph: {
+    title: "Laiza Advocacia",
+    description:
+      "Assessoria jurídica com excelência e dedicação. Atendimento personalizado para proteger seus direitos.",
+    url: "https://laizaadv.com.br",
+    siteName: "Laiza Advocacia",
+    locale: "pt_BR",
+    type: "website",
+    images: [
+      {
+        url: "/images/og-image.webp",
+        width: 1200,
+        height: 630,
+        alt: "Laiza Advocacia - Assessoria Jurídica",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Laiza Advocacia",
+    description:
+      "Assessoria jurídica com excelência e dedicação. Atendimento personalizado para proteger seus direitos.",
+    images: ["/images/og-image.webp"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  icons: {
+    icon: "/logos/icon.png",
+    shortcut: "/logos/icon.png",
+    apple: "/logos/icon.png",
+  },
+  manifest: "/site.webmanifest",
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html
+      lang="pt-BR"
+      className={`${sourceSerif.variable} ${workSans.variable} scroll-smooth`}
+    >
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      </head>
+      <body className="min-h-dvh flex flex-col font-sans antialiased">{children}</body>
+    </html>
+  );
+}
+</file>
+
+<file path="app/page.tsx">
+import Nav from "./components/Nav";
+import Hero from "./components/Hero";
+import Servicos from "./components/Servicos";
+import Sobre from "./components/Sobre";
+import Contato from "./components/Contato";
+import Footer from "./components/Footer";
+
+export default function Home() {
+  return (
+    <>
+      <Nav />
+      <main>
+        <Hero />
+        <Servicos />
+        <Sobre />
+        <Contato />
+      </main>
+      <Footer />
+    </>
+  );
+}
+</file>
+
+<file path="public/file.svg">
+<svg fill="none" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M14.5 13.5V5.41a1 1 0 0 0-.3-.7L9.8.29A1 1 0 0 0 9.08 0H1.5v13.5A2.5 2.5 0 0 0 4 16h8a2.5 2.5 0 0 0 2.5-2.5m-1.5 0v-7H8v-5H3v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1M9.5 5V2.12L12.38 5zM5.13 5h-.62v1.25h2.12V5zm-.62 3h7.12v1.25H4.5zm.62 3h-.62v1.25h7.12V11z" clip-rule="evenodd" fill="#666" fill-rule="evenodd"/></svg>
+</file>
+
+<file path="public/globe.svg">
+<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M10.27 14.1a6.5 6.5 0 0 0 3.67-3.45q-1.24.21-2.7.34-.31 1.83-.97 3.1M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m.48-1.52a7 7 0 0 1-.96 0H7.5a4 4 0 0 1-.84-1.32q-.38-.89-.63-2.08a40 40 0 0 0 3.92 0q-.25 1.2-.63 2.08a4 4 0 0 1-.84 1.31zm2.94-4.76q1.66-.15 2.95-.43a7 7 0 0 0 0-2.58q-1.3-.27-2.95-.43a18 18 0 0 1 0 3.44m-1.27-3.54a17 17 0 0 1 0 3.64 39 39 0 0 1-4.3 0 17 17 0 0 1 0-3.64 39 39 0 0 1 4.3 0m1.1-1.17q1.45.13 2.69.34a6.5 6.5 0 0 0-3.67-3.44q.65 1.26.98 3.1M8.48 1.5l.01.02q.41.37.84 1.31.38.89.63 2.08a40 40 0 0 0-3.92 0q.25-1.2.63-2.08a4 4 0 0 1 .85-1.32 7 7 0 0 1 .96 0m-2.75.4a6.5 6.5 0 0 0-3.67 3.44 29 29 0 0 1 2.7-.34q.31-1.83.97-3.1M4.58 6.28q-1.66.16-2.95.43a7 7 0 0 0 0 2.58q1.3.27 2.95.43a18 18 0 0 1 0-3.44m.17 4.71q-1.45-.12-2.69-.34a6.5 6.5 0 0 0 3.67 3.44q-.65-1.27-.98-3.1" fill="#666"/></g><defs><clipPath id="a"><path fill="#fff" d="M0 0h16v16H0z"/></clipPath></defs></svg>
+</file>
+
+<file path="public/next.svg">
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 394 80"><path fill="#000" d="M262 0h68.5v12.7h-27.2v66.6h-13.6V12.7H262V0ZM149 0v12.7H94v20.4h44.3v12.6H94v21h55v12.6H80.5V0h68.7zm34.3 0h-17.8l63.8 79.4h17.9l-32-39.7 32-39.6h-17.9l-23 28.6-23-28.6zm18.3 56.7-9-11-27.1 33.7h17.8l18.3-22.7z"/><path fill="#000" d="M81 79.3 17 0H0v79.3h13.6V17l50.2 62.3H81Zm252.6-.4c-1 0-1.8-.4-2.5-1s-1.1-1.6-1.1-2.6.3-1.8 1-2.5 1.6-1 2.6-1 1.8.3 2.5 1a3.4 3.4 0 0 1 .6 4.3 3.7 3.7 0 0 1-3 1.8zm23.2-33.5h6v23.3c0 2.1-.4 4-1.3 5.5a9.1 9.1 0 0 1-3.8 3.5c-1.6.8-3.5 1.3-5.7 1.3-2 0-3.7-.4-5.3-1s-2.8-1.8-3.7-3.2c-.9-1.3-1.4-3-1.4-5h6c.1.8.3 1.6.7 2.2s1 1.2 1.6 1.5c.7.4 1.5.5 2.4.5 1 0 1.8-.2 2.4-.6a4 4 0 0 0 1.6-1.8c.3-.8.5-1.8.5-3V45.5zm30.9 9.1a4.4 4.4 0 0 0-2-3.3 7.5 7.5 0 0 0-4.3-1.1c-1.3 0-2.4.2-3.3.5-.9.4-1.6 1-2 1.6a3.5 3.5 0 0 0-.3 4c.3.5.7.9 1.3 1.2l1.8 1 2 .5 3.2.8c1.3.3 2.5.7 3.7 1.2a13 13 0 0 1 3.2 1.8 8.1 8.1 0 0 1 3 6.5c0 2-.5 3.7-1.5 5.1a10 10 0 0 1-4.4 3.5c-1.8.8-4.1 1.2-6.8 1.2-2.6 0-4.9-.4-6.8-1.2-2-.8-3.4-2-4.5-3.5a10 10 0 0 1-1.7-5.6h6a5 5 0 0 0 3.5 4.6c1 .4 2.2.6 3.4.6 1.3 0 2.5-.2 3.5-.6 1-.4 1.8-1 2.4-1.7a4 4 0 0 0 .8-2.4c0-.9-.2-1.6-.7-2.2a11 11 0 0 0-2.1-1.4l-3.2-1-3.8-1c-2.8-.7-5-1.7-6.6-3.2a7.2 7.2 0 0 1-2.4-5.7 8 8 0 0 1 1.7-5 10 10 0 0 1 4.3-3.5c2-.8 4-1.2 6.4-1.2 2.3 0 4.4.4 6.2 1.2 1.8.8 3.2 2 4.3 3.4 1 1.4 1.5 3 1.5 5h-5.8z"/></svg>
+</file>
+
+<file path="public/site.webmanifest">
+{
+  "name": "Laiza Advocacia",
+  "short_name": "Laiza Adv",
+  "description": "Assessoria jurídica com excelência e dedicação. Atendimento personalizado para proteger seus direitos.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fafafa",
+  "theme_color": "#3b2a6b",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/logos/icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "legal", "professional"],
+  "lang": "pt-BR"
+}
+</file>
+
+<file path="public/vercel.svg">
+<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1155 1000"><path d="m577.3 0 577.4 1000H0z" fill="#fff"/></svg>
+</file>
+
+<file path="public/window.svg">
+<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.5 2.5h13v10a1 1 0 0 1-1 1h-11a1 1 0 0 1-1-1zM0 1h16v11.5a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 0 12.5zm3.75 4.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5M7 4.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0m1.75.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5" fill="#666"/></svg>
+</file>
+
+<file path=".gitignore">
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env files (can opt-in for committing if needed)
+.env*
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+</file>
+
+<file path="eslint.config.mjs">
+import { defineConfig, globalIgnores } from "eslint/config";
+import nextVitals from "eslint-config-next/core-web-vitals";
+import nextTs from "eslint-config-next/typescript";
+
+const eslintConfig = defineConfig([
+  ...nextVitals,
+  ...nextTs,
+  // Override default ignores of eslint-config-next.
+  globalIgnores([
+    // Default ignores of eslint-config-next:
+    ".next/**",
+    "out/**",
+    "build/**",
+    "next-env.d.ts",
+  ]),
+]);
+
+export default eslintConfig;
+</file>
+
+<file path="next.config.ts">
+import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
+  /* config options here */
+};
+
+export default nextConfig;
+</file>
+
+<file path="package.json">
+{
+  "name": "laiza-adv",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "next": "16.2.10",
+    "react": "19.2.4",
+    "react-dom": "19.2.4"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.2.10",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}
+</file>
+
+<file path="postcss.config.mjs">
+const config = {
+  plugins: {
+    "@tailwindcss/postcss": {},
+  },
+};
+
+export default config;
+</file>
+
+<file path="PRODUCT.md">
+# Product
+
+## Register
+
+brand
+
+## Users
+
+Clientes buscando um(a) advogado(a) de confiança — pessoas físicas com problemas jurídicos (família, trabalhista, previdenciário, cível) que chegam à página em um momento de necessidade ou vulnerabilidade. Procuram segurança, credibilidade e clareza sobre os serviços oferecidos. O contexto é majoritariamente mobile e desktop, em horários comerciais e fora deles, com atenção dividida e carga emocional elevada.
+
+## Product Purpose
+
+Landing page de apresentação profissional para Laiza Advocacia. A página deve comunicar competência jurídica, transmitir confiança e tornar os serviços compreensíveis para o público leigo. O objetivo primário é converter visitas em contato (WhatsApp, formulário, telefone). Sucesso se mede em consultas agendadas.
+
+## Brand Personality
+
+Sóbria, confiável, tradicional. Voz formal sem ser fria — autoridade jurídica com proximidade humana. O tom é respeitoso e acolhedor, sem jargão excessivo. A página respira seriedade mas não intimida: quem chega com um problema deve sentir que está no lugar certo.
+
+Referência principal: [Jailton Pereira Advocacia](https://jailtonpereira.com/) — estrutura limpa e direta, palette escura com toques dourados, hierarquia clara de seções (hero → serviços → sobre → contato), sem excessos decorativos. O que funciona: a sensação de solidez institucional sem parecer um template genérico.
+
+## Anti-references
+
+- **Sem estética startup/SaaS**: nada de gradients, glassmorphism, ilustrações vetoriais "fofinhas", tom informal de changelog, scrolljacking ou animações provocativas.
+- **Sem corporate genérico**: nada de azul-marinho-anônimo, stock photos de pessoas de terno sorrindo em mesas de reunião, layouts que poderiam ser de qualquer banco ou seguradora.
+- **Sem "moderninho" gratuito**: evitar motion como decoração, tipografia experimental, grids assimétricos forçados.
+- **Sem dourado ostentação**: se usar dourado, que seja um toque comedido, não uma página banhada a ouro como joalheria.
+
+## Design Principles
+
+1. **Solidez visível**: a página deve parecer tão sólida quanto o serviço jurídico que representa. Tipografia firme, cores ancoradas, estrutura previsível.
+2. **Clareza antes de elegância**: o visitante está sob estresse. A informação (serviços, contato) deve ser imediatamente compreensível, sem obstáculos visuais.
+3. **Confiança pelo detalhe**: alinhamento preciso, contraste correto, copy sem erros — a qualidade do design comunica a qualidade do serviço.
+4. **Proximidade sem informalidade**: acolher sem ser casual. Linguagem respeitosa mas acessível, sem jargão desnecessário.
+5. **Presença, não espetáculo**: a página existe para servir, não para impressionar. Cada elemento tem função; nada é decorativo.
+
+## Accessibility & Inclusion
+
+- WCAG 2.1 AA como referência mínima (contraste 4.5:1 para texto, 3:1 para texto grande)
+- Navegação completa por teclado (focus rings visíveis)
+- Texto redimensionável sem quebra de layout
+- `prefers-reduced-motion` respeitado — revelações com fallback estático
+- Formulário com labels associadas e mensagens de erro claras
+- Suporte a leitores de tela (landmarks, alt text, roles ARIA onde necessário)
+</file>
+
+<file path="README.md">
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+
+## Getting Started
+
+First, run the development server:
+
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+
+## Learn More
+
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+</file>
+
+<file path="tsconfig.json">
+{
+  "compilerOptions": {
+    "target": "ES2017",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": ["./*"]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    ".next/dev/types/**/*.ts",
+    "**/*.mts"
+  ],
+  "exclude": ["node_modules"]
+}
+</file>
+
+</files>

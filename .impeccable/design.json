@@ -1,0 +1,149 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-07-05T14:00:00-03:00",
+  "title": "Design System: Laiza Advocacia",
+  "extensions": {
+    "colorMeta": {
+      "primary": { "role": "primary", "displayName": "Navy Advocacia", "canonical": "oklch(0.45 0.18 261)", "tonalRamp": ["oklch(0.15 0.04 261)","oklch(0.22 0.06 261)","oklch(0.30 0.10 261)","oklch(0.38 0.14 261)","oklch(0.45 0.18 261)","oklch(0.55 0.15 261)","oklch(0.65 0.12 261)","oklch(0.78 0.08 261)"] },
+      "primary-deep": { "role": "primary", "displayName": "Navy Profundo", "canonical": "oklch(0.32 0.14 261)", "tonalRamp": ["oklch(0.10 0.03 261)","oklch(0.18 0.05 261)","oklch(0.25 0.09 261)","oklch(0.32 0.14 261)","oklch(0.40 0.15 261)","oklch(0.50 0.13 261)","oklch(0.62 0.10 261)","oklch(0.78 0.06 261)"] },
+      "accent": { "role": "secondary", "displayName": "Dourado Contido", "canonical": "oklch(0.72 0.12 85)", "tonalRamp": ["oklch(0.20 0.04 85)","oklch(0.32 0.07 85)","oklch(0.45 0.10 85)","oklch(0.55 0.12 85)","oklch(0.62 0.13 85)","oklch(0.72 0.12 85)","oklch(0.82 0.10 85)","oklch(0.92 0.06 85)"] },
+      "accent-dim": { "role": "secondary", "displayName": "Dourado Escurecido", "canonical": "oklch(0.55 0.1 85)", "tonalRamp": ["oklch(0.18 0.03 85)","oklch(0.28 0.06 85)","oklch(0.38 0.08 85)","oklch(0.47 0.09 85)","oklch(0.55 0.10 85)","oklch(0.65 0.10 85)","oklch(0.75 0.10 85)","oklch(0.88 0.06 85)"] },
+      "bg": { "role": "neutral", "displayName": "Papel Neutro", "canonical": "oklch(0.985 0 0)", "tonalRamp": ["oklch(0.12 0 0)","oklch(0.30 0 0)","oklch(0.50 0 0)","oklch(0.70 0 0)","oklch(0.85 0 0)","oklch(0.92 0 0)","oklch(0.96 0 0)","oklch(0.985 0 0)"] },
+      "surface": { "role": "neutral", "displayName": "Superfície Tintada", "canonical": "oklch(0.945 0.006 261)", "tonalRamp": ["oklch(0.12 0.01 261)","oklch(0.30 0.02 261)","oklch(0.50 0.004 261)","oklch(0.70 0.005 261)","oklch(0.82 0.006 261)","oklch(0.90 0.006 261)","oklch(0.93 0.006 261)","oklch(0.96 0.003 261)"] },
+      "ink": { "role": "neutral", "displayName": "Tinta Base", "canonical": "oklch(0.18 0.014 261)", "tonalRamp": ["oklch(0.08 0.01 261)","oklch(0.12 0.01 261)","oklch(0.18 0.014 261)","oklch(0.28 0.014 261)","oklch(0.42 0.013 261)","oklch(0.55 0.012 261)","oklch(0.72 0.008 261)","oklch(0.88 0.004 261)"] },
+      "ink-rich": { "role": "neutral", "displayName": "Tinta Rica", "canonical": "oklch(0.12 0.01 261)", "tonalRamp": ["oklch(0.05 0.005 261)","oklch(0.08 0.008 261)","oklch(0.12 0.01 261)","oklch(0.18 0.014 261)","oklch(0.28 0.014 261)","oklch(0.42 0.013 261)","oklch(0.62 0.01 261)","oklch(0.85 0.005 261)"] },
+      "muted": { "role": "neutral", "displayName": "Muted", "canonical": "oklch(0.46 0.012 261)", "tonalRamp": ["oklch(0.15 0.012 261)","oklch(0.25 0.012 261)","oklch(0.35 0.012 261)","oklch(0.46 0.012 261)","oklch(0.58 0.01 261)","oklch(0.70 0.008 261)","oklch(0.82 0.005 261)","oklch(0.92 0.003 261)"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Apenas H1 do hero. Autoridade máxima, nunca excede 96px." },
+      "headline": { "displayName": "Headline", "purpose": "H2 de seção em serviços, sobre, contato." },
+      "title": { "displayName": "Title", "purpose": "H3 — títulos de áreas de prática em cards." },
+      "body": { "displayName": "Body", "purpose": "Texto corrido. Cap 65–75ch." },
+      "body-lg": { "displayName": "Body Lg", "purpose": "Sub-headlines de seção, max-width 58–62ch." },
+      "label": { "displayName": "Label", "purpose": "Labels de formulário, menu nav uppercase. Sem eyebrow reflexo." }
+    },
+    "shadows": [
+      { "name": "header-scrolled", "value": "0 4px 24px oklch(0 0 0 / 0.18)", "purpose": "Sombras ambientes surgem só quando o header fica fixo ao rolar. Nunca em repouso." },
+      { "name": "inset-portrait-edge", "value": "inset 0 1px 0 0 oklch(1 0 0 / 0.08), inset 0 -1px 0 0 oklch(0 0 0 / 0.12)", "purpose": "Borda interna luminosa superior + sombrea inferior sutil em contêineres de imagem." },
+      { "name": "nav-cta-glow", "value": "0 2px 10px oklch(0.72 0.12 85 / 0.2)", "purpose": "Realce sutil de dourado na CTA do header. Único uso permissível de cor numa sombra." }
+    ],
+    "motion": [
+      { "name": "fade-in-up", "value": "opacity 0 to 1, translateY 12px to 0, 600ms cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Revelação de entrada de textos do hero. Stagger 100ms." },
+      { "name": "slide-in-blur", "value": "opacity 0 to 1, translateX -80px to 0, filter blur(8px) to 0, 2200ms cubic-bezier(0.22, 1, 0.36, 1)", "purpose": "Entrada lateral do retrato do hero. Lento e material." },
+      { "name": "reduced-motion-fallback", "value": "animation-duration: 0.01ms, iteration-count: 1, transition-duration: 0.01ms", "purpose": "Fallback instantâneo obrigatório para prefers-reduced-motion: reduce." },
+      { "name": "state-transition", "value": "background-color, border-color, color 300ms ease", "purpose": "Transições de estado em botões, inputs, links. Sem bounce, sem elastic." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "CTA principal — agendar consulta, enviar mensagem. Navy com texto branco, cantos pill.",
+      "html": "<button class=\"ds-btn-primary\">Agende uma consulta</button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; height: 48px; padding: 0 32px; border: none; border-radius: 9999px; background: var(--color-primary, oklch(0.45 0.18 261)); color: var(--color-bg, #fff); font-family: 'Work Sans', system-ui, sans-serif; font-size: 14px; font-weight: 600; line-height: 1.4; cursor: pointer; transition: background-color 300ms ease; } .ds-btn-primary:hover { background: var(--color-primary-deep, oklch(0.32 0.14 261)); } .ds-btn-primary:focus-visible { outline: 2px solid var(--color-primary, oklch(0.45 0.18 261)); outline-offset: 2px; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Ação secundária — conhecer serviços. Transparente com borda, texto ink.",
+      "html": "<button class=\"ds-btn-secondary\">Conheça nossos serviços</button>",
+      "css": ".ds-btn-secondary { display: inline-flex; align-items: center; height: 48px; padding: 0 32px; border: 1px solid var(--color-border, oklch(0.88 0.004 261)); border-radius: 9999px; background: transparent; color: var(--color-ink, oklch(0.18 0.014 261)); font-family: 'Work Sans', system-ui, sans-serif; font-size: 14px; font-weight: 600; line-height: 1.4; cursor: pointer; transition: border-color 300ms ease, background-color 300ms ease; } .ds-btn-secondary:hover { border-color: var(--color-border-strong, oklch(0.78 0.008 261)); background: var(--color-surface, oklch(0.945 0.006 261)); } .ds-btn-secondary:focus-visible { outline: 2px solid var(--color-primary, oklch(0.45 0.18 261)); outline-offset: 2px; }"
+    },
+    {
+      "name": "Nav CTA Button",
+      "kind": "button",
+      "refersTo": "button-nav-cta",
+      "description": "CTA dourado do header, cantos retos. Único uso permissível de accent em botão.",
+      "html": "<button class=\"ds-btn-nav-cta\">Fale Conosco</button>",
+      "css": ".ds-btn-nav-cta { display: inline-flex; align-items: center; height: 40px; padding: 0 24px; border: none; border-radius: 0; background: var(--color-accent, oklch(0.72 0.12 85)); color: #fff; font-family: 'Work Sans', system-ui, sans-serif; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; cursor: pointer; box-shadow: 0 2px 10px oklch(0.72 0.12 85 / 0.2); transition: background-color 300ms ease; } .ds-btn-nav-cta:hover { background: var(--color-accent-dim, oklch(0.55 0.1 85)); } .ds-btn-nav-cta:focus-visible { outline: 2px solid var(--color-accent, oklch(0.72 0.12 85)); outline-offset: 2px; }"
+    },
+    {
+      "name": "Form Input",
+      "kind": "input",
+      "refersTo": "input-field",
+      "description": "Campo de formulário — nome, email, mensagem. Borda 1px, fundo claro, cantos 8px.",
+      "html": "<input class=\"ds-input\" type=\"text\" placeholder=\"Seu nome completo\" aria-label=\"Nome\" />",
+      "css": ".ds-input { display: flex; align-items: center; height: 48px; padding: 0 16px; border: 1px solid var(--color-border, oklch(0.88 0.004 261)); border-radius: 8px; background: var(--color-bg, oklch(0.985 0 0)); color: var(--color-ink, oklch(0.18 0.014 261)); font-family: 'Work Sans', system-ui, sans-serif; font-size: 16px; line-height: 1.65; transition: border-color 300ms ease; } .ds-input::placeholder { color: var(--color-muted-light, oklch(0.46 0.008 261)); } .ds-input:hover { border-color: var(--color-border-strong, oklch(0.78 0.008 261)); } .ds-input:focus { border-color: var(--color-primary, oklch(0.45 0.18 261)); outline: none; }"
+    },
+    {
+      "name": "Practice Area Card",
+      "kind": "card",
+      "refersTo": "card-practice-area",
+      "description": "Card de área de prática — bg claro, hover surface, padding 32px. Sem sombra no repouso.",
+      "html": "<div class=\"ds-card-practice\"><div class=\"ds-card-practice-mark\" aria-hidden=\"true\"></div><h3 class=\"ds-card-practice-title\">Direito da Família</h3><p class=\"ds-card-practice-desc\">Divórcio, guarda de filhos, pensão alimentícia.</p></div>",
+      "css": ".ds-card-practice { position: relative; padding: 32px; background: var(--color-bg, oklch(0.985 0 0)); transition: background-color 300ms ease; } .ds-card-practice:hover { background: var(--color-surface, oklch(0.945 0.006 261)); } .ds-card-practice-mark { height: 1px; width: 40px; border-radius: 9999px; background: var(--color-accent, oklch(0.72 0.12 85)); margin-bottom: 20px; } .ds-card-practice-title { margin: 0 0 12px 0; font-family: 'Source Serif 4', Georgia, serif; font-size: 24px; font-weight: 600; line-height: 1.2; color: var(--color-ink-rich, oklch(0.12 0.01 261)); } .ds-card-practice-desc { margin: 0; max-width: 55ch; font-family: 'Work Sans', system-ui, sans-serif; font-size: 16px; line-height: 1.65; color: var(--color-muted, oklch(0.46 0.012 261)); }"
+    },
+    {
+      "name": "Aside Card",
+      "kind": "card",
+      "refersTo": "card-aside",
+      "description": "Aside de contato — surface tintada, cantos 12px, padding generoso.",
+      "html": "<aside class=\"ds-card-aside\"><span class=\"ds-card-aside-label\">WhatsApp</span><a class=\"ds-card-aside-link\" href=\"#\">(00) 00000-0000</a></aside>",
+      "css": ".ds-card-aside { display: flex; flex-direction: column; gap: 4px; padding: 32px 40px; background: var(--color-surface, oklch(0.945 0.006 261)); border-radius: 12px; } .ds-card-aside-label { font-family: 'Work Sans', system-ui, sans-serif; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-muted-light, oklch(0.46 0.008 261)); } .ds-card-aside-link { font-family: 'Work Sans', system-ui, sans-serif; font-size: 16px; font-weight: 500; color: var(--color-primary, oklch(0.45 0.18 261)); text-decoration: none; transition: color 300ms ease; } .ds-card-aside-link:hover { color: var(--color-primary-deep, oklch(0.32 0.14 261)); } .ds-card-aside-link:focus-visible { outline: 2px solid var(--color-primary, oklch(0.45 0.18 261)); outline-offset: 2px; }"
+    },
+    {
+      "name": "Display Heading",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "H1 do hero em Source Serif 4, clamp até 5rem, letter-spacing -0.025em (floor).",
+      "html": "<h1 class=\"ds-display\">Assessoria jurídica<br/>com excelência<br/>e dedicação</h1>",
+      "css": ".ds-display { margin: 0; font-family: 'Source Serif 4', Georgia, serif; font-size: clamp(2.5rem, 6vw + 0.5rem, 5rem); font-weight: 600; line-height: 1.05; letter-spacing: -0.025em; color: var(--color-ink-rich, oklch(0.12 0.01 261)); text-wrap: balance; }"
+    },
+    {
+      "name": "Form Error Alert",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Mensagem de erro de formulário — bg tintado a 8%, borda a 30%, texto error.",
+      "html": "<div class=\"ds-alert-error\" role=\"alert\">Não foi possível enviar. Tente novamente ou fale conosco pelo WhatsApp.</div>",
+      "css": ".ds-alert-error { padding: 16px 20px; border: 1px solid oklch(0.52 0.18 20 / 0.3); border-radius: 8px; background: oklch(0.52 0.18 20 / 0.08); color: var(--color-error, oklch(0.52 0.18 20)); font-family: 'Work Sans', system-ui, sans-serif; font-size: 16px; line-height: 1.65; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "A Balança",
+    "overview": "O sistema é a balança como objeto físico — equilíbrio entre peso e leveza, simetria, materialidade. Cada escolha de design pesa na representação da autoridade jurídica: a paleta ancorada não grita, a serifa firma, o dourado pontua sem ostentar.\n\nA linguagem visual rejeita o clichê startup/SaaS (gradientes, glassmorphism, micro-animações provocativas) e o corporate anônimo (azul-marinho sem identidade, stock photos de terno). Adota a sobriedade de um escritório tradicional: tipografia serifada firma em display e titles, sans humanista para corpo, navy profundo como base institucional, dourado contido como o único accent — nunca como banho.\n\nA elevação é flat por padrão: profundidade vem do contraste tonal entre bg e surface e de bordas sutis. Sombras surgem só como resposta a estado (hover, foco), nunca como decoração ambiente. A balança em repouso, não oscilando.",
+    "keyCharacteristics": [
+      "Paleta escura institucional (navy + ink-rich) com dourado contido como único accent",
+      "Tipografia serifada display (Source Serif 4) + sans humanista body (Work Sans)",
+      "Hierarquia clara hero → serviços → sobre → contato, sem destaques decorativos",
+      "Bordas 1px e contraste tonal como vocabulário de profundidade; sombras só em estado",
+      "Motion restrito: revelações com fallback estático (reduced-motion), nada decorativo",
+      "Cantos moderados: pill em CTAs, 12px em cartões, 8px em inputs, retos na CTA do nav"
+    ],
+    "rules": [
+      { "name": "A Regra do Único Accent", "body": "O dourado é o único accent cálido e aparece em ≤10% de qualquer tela. Nunca cobre superfícies grandes, nunca em body text, nunca em gradientes.", "section": "colors" },
+      { "name": "A Regra do Achromatic Background", "body": "O bg é rigorosamente achromatic (chroma 0). Creme/areia/pergaminho proibidos — são o default AI de 2026. Warmth vem do accent dourado pontual.", "section": "colors" },
+      { "name": "A Regra do Contenção Display", "body": "Display letter-spacing nunca aperta além de -0.025em. Apertar mais faz as letras se tocarem.", "section": "typography" },
+      { "name": "A Regra do Sem Eyebrow Reflexo", "body": "Kicker uppercase tracked acima de cada heading é proibido como gramática default. Um kicker nomeado e deliberado pode existir; repeti-lo em todas é scaffold AI.", "section": "typography" },
+      { "name": "A Regra do Flat no Repouso", "body": "Cartões, inputs e superfícies são planos no repouso. Sombras surgem apenas como resposta a estado (hover, foco, scroll).", "section": "elevation" },
+      { "name": "A Regra do Sem Ghost-Card", "body": "Nunca parear border: 1px solid com box-shadow de blur ≥16px no mesmo elemento. Ou borda definida ou sombra ≤8px blur.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do usar bg achromatic (oklch(0.985 0 0)) como fundo base. Warmth do accent + serifa.",
+      "Do limitar o dourado a ≤10% da superfície visível.",
+      "Do manter headings em Source Serif 4 peso 600; body em Work Sans 400.",
+      "Do usar cantos moderados: pill em CTAs, 12px em cartões, 8px em inputs, 0px na CTA do header.",
+      "Do comunicar profundidade via contraste tonal e bordas 1px. Sombras só em estado.",
+      "Do respeitar prefers-reduced-motion: toda revelação tem fallback estático.",
+      "Do manter contraste ≥4.5:1 em body; ≥3:1 em texto grande."
+    ],
+    "donts": [
+      "Don't usar estética startup/SaaS: gradients, glassmorphism, ilustrações \"fofinhas\", scrolljacking, motion provocativo.",
+      "Don't usar corporate genérico: azul-marinho anônimo, stock photos de terno, layouts de banco/seguradora.",
+      "Don't usar dourado em ostentação — nunca cobrir superfícies grandes, nunca em gradientes, nunca como banho de joalheria.",
+      "Don't parear border: 1px com box-shadow blur ≥16px no mesmo elemento.",
+      "Don't usar border-radius ≥24px em cartões. \"Insanamente arredondado\" nenhum cliente quer.",
+      "Don't apertar display letter-spacing além de -0.025em.",
+      "Don't repetir kicker uppercase tracked acima de cada heading como gramática default.",
+      "Don't usar background-clip: text com gradiente. Texto em cor sólida sempre.",
+      "Don't usar border-left/right >1px como accent lateral.",
+      "Don't usar motion como decoração. Cada revelação serve ao que revela."
+    ]
+  }
+}

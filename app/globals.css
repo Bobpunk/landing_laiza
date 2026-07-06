@@ -1,0 +1,101 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-primary: oklch(0.45 0.18 261);
+  --color-primary-deep: oklch(0.32 0.14 261);
+  --color-primary-light: oklch(0.62 0.12 261);
+  --color-bg: oklch(0.985 0 0);
+  --color-surface: oklch(0.945 0.006 261);
+  --color-surface-alt: oklch(0.96 0.003 261);
+  --color-ink: oklch(0.18 0.014 261);
+  --color-ink-rich: oklch(0.12 0.01 261);
+  --color-accent: oklch(0.72 0.12 85);
+  --color-accent-dim: oklch(0.55 0.1 85);
+  --color-muted: oklch(0.46 0.012 261);
+  --color-muted-light: oklch(0.46 0.008 261);
+  --color-border: oklch(0.88 0.004 261);
+  --color-border-strong: oklch(0.78 0.008 261);
+  --color-success: oklch(0.62 0.16 145);
+  --color-error: oklch(0.52 0.18 20);
+
+  --font-serif: var(--font-serif);
+  --font-sans: var(--font-sans);
+
+  --text-body: 1rem;
+  --text-body-lg: 1.125rem;
+  --leading-body: 1.65;
+  --leading-tight: 1.1;
+  --tracking-display: -0.025em;
+  --tracking-heading: -0.02em;
+  --tracking-caps: 0.08em;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-weight: 400;
+  line-height: var(--leading-body);
+  font-optical-sizing: auto;
+  font-kerning: normal;
+  font-variant-ligatures: common-ligatures;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3 {
+  font-optical-sizing: auto;
+  font-kerning: normal;
+}
+
+*:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-80px);
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+::selection {
+  background: oklch(0.45 0.18 261 / 0.25);
+  color: var(--color-ink);
+}
+/*classe de teste para as bordas apgar deposi */
+.divisor-global {
+  height: 5px;
+  width: 100%;
+  background-color: oklch(0.72 0.12 85);
+  display: block;
+}

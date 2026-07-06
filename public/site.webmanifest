@@ -1,0 +1,20 @@
+{
+  "name": "Laiza Advocacia",
+  "short_name": "Laiza Adv",
+  "description": "Assessoria jurídica com excelência e dedicação. Atendimento personalizado para proteger seus direitos.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fafafa",
+  "theme_color": "#3b2a6b",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/logos/icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "legal", "professional"],
+  "lang": "pt-BR"
+}
