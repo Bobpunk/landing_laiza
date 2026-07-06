@@ -53,7 +53,7 @@ export default function Hero() {
         {/* Coluna de Texto */}
         <div className="max-w-2xl">
           <p className="mb-6 font-sans text-sm font-semibold tracking-[0.2em] text-accent uppercase opacity-0 animate-[fadeIn_600ms_cubic-bezier(0.16,1,0.3,1)_100ms_forwards]">
-            Laíza Advocacia
+            
           </p>
           
           <h1 className="mb-8 font-serif text-[clamp(2.5rem,5vw+0.5rem,4.5rem)] font-semibold leading-[1.1] tracking-[-0.02em] text-white [text-wrap:balance] opacity-0 animate-[fadeIn_600ms_cubic-bezier(0.16,1,0.3,1)_200ms_forwards]">
@@ -95,7 +95,7 @@ export default function Hero() {
             
             {/* O segredo do enquadramento está no `object-top` e no `fill` */}
             <Image
-              src="/images/foto-1.webp"
+              src="/images/foto-1.jpeg"
               alt="Laiza Advocacia"
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"

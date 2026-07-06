@@ -18,7 +18,6 @@ const workSans = Work_Sans({
 });
 
 export const metadata: Metadata = {
-  // ... (seus metadados permanecem exatamente iguais)
   title: "Laiza Advocacia",
   description:
     "Assessoria jurídica com excelência e dedicação. Atendimento personalizado para proteger seus direitos.",
@@ -75,7 +74,7 @@ export default function RootLayout({
       </head>
       <body className="min-h-dvh flex flex-col font-sans antialiased">
         {children}
-        <WhatsAppButton /> {/* <-- AQUI */}
+        <WhatsAppButton />
       </body>
     </html>
   );

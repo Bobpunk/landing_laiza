@@ -105,7 +105,7 @@ export default function Contato() {
             <div>
               <p className="text-[10px] font-bold tracking-widest text-muted uppercase">Email</p>
               <a href="mailto:contato@laizaadv.com.br" className="text-sm font-medium text-primary">
-                laiza@laizaadv.com.br
+                contato@laizaadv.com.br
               </a>
             </div>
             <div>

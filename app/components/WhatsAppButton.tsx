@@ -1,17 +1,21 @@
-"use client";
-
+// app/components/WhatsAppButton.tsx
 export default function WhatsAppButton() {
+  // ATENÇÃO: Substitua pelo número real da advogada (Código do País + DDD + Número)
+  const phoneNumber = "5583987911703"; 
+  const message = encodeURIComponent("Olá! Gostaria de agendar uma consulta ou tirar dúvidas sobre a assessoria jurídica.");
+  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+
   return (
     <a
-      href="https://wa.me/5583987911703?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta."
+      href={whatsappUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_4px_12px_rgba(37,211,102,0.4)] transition-all duration-300 hover:scale-110 hover:shadow-[0_8px_20px_rgba(37,211,102,0.6)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#25D366]"
       aria-label="Fale conosco pelo WhatsApp"
+      className="fixed bottom-6 right-6 z-[90] flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_4px_14px_rgba(37,211,102,0.4)] transition-transform duration-300 hover:scale-110 hover:shadow-[0_6px_20px_rgba(37,211,102,0.6)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#25D366] md:bottom-8 md:right-8"
     >
       <svg
-        width="30"
-        height="30"
+        width="32"
+        height="32"
         viewBox="0 0 24 24"
         fill="currentColor"
         aria-hidden="true"
