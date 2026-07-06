@@ -108,6 +108,19 @@ export default function Contato() {
                 laiza@laizaadv.com.br
               </a>
             </div>
+            <div>
+              <p className="text-[10px] font-bold tracking-widest text-muted uppercase">Endereço</p>
+              <a 
+                href="https://www.google.com/maps/search/?api=1&query=Av.+Flávio+Ribeiro+Coutinho,210+-+Centro,+Santa+Rita+-+PB" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="block text-sm font-medium text-primary hover:underline"
+              >
+                Av. Flávio Ribeiro Coutinho, 210 - Centro<br />
+                Santa Rita - PB<br />
+                58300-220
+              </a>
+            </div>
           </aside>
         </div>
       </div>
