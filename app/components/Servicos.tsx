@@ -6,28 +6,28 @@ const areas = [
     title: "Direito do Trabalho",
     description:
       "Defesa rigorosa dos direitos trabalhistas, atuando em rescisões, horas extras, assédio moral e litígios complexos.",
-    icon: "/images/servico-box.webp", 
+    icon: "/images/servico-box3-no-bg.png", 
   },
   {
     id: "02",
     title: "Direito Criminal",
     description:
       "Atuação ágil, combativa e sob sigilo absoluto em inquéritos policiais, audiências de custódia e processos penais.",
-    icon: "/images/servico-box.webp",
+    icon: "/images/servico-box3-no-bg.png",
   },
   {
     id: "03",
     title: "Direito Bancário",
     description:
       "Proteção patrimonial contra abusos financeiros, englobando revisão de juros, fraudes e renegociação de contratos.",
-    icon: "/images/servico-box3.webp",
+    icon: "/images/servico-box3-no-bg.png",
   },
   {
     id: "04",
     title: "Direito da Família",
     description:
       "Condução estratégica e humanizada de divórcios, guarda, pensão alimentícia e partilha de bens.",
-    icon: "/images/servico-box3.webp",
+    icon: "/images/servico-box3-no-bg.png",
   },
 ];
 
