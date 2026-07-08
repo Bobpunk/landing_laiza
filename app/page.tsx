@@ -1,6 +1,7 @@
 // app/page.tsx
 import Nav from "./components/Nav";
 import Hero from "./components/Hero";
+
 import Servicos from "./components/Servicos";
 import Sobre from "./components/Sobre";
 import Contato from "./components/Contato";
@@ -13,6 +14,10 @@ export default function Home() {
       {/* O flex-col é obrigatório para que as divs empilhem corretamente */}
       <main className="flex flex-col">
         <Hero />
+        
+        {/* Posicionado logo abaixo do Hero com o divisor padrão */}
+        <div className="divisor-global" />
+        
         
         <div className="divisor-global" />
         
