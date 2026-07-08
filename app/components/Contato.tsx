@@ -1,3 +1,4 @@
+// app/components/Contato.tsx
 "use client";
 
 import { useState, type FormEvent } from "react";
@@ -14,7 +15,10 @@ export default function Contato() {
     const form = e.currentTarget;
     const data = new FormData(form);
 
-    fetch("https://formspree.io/f/placeholder", {
+    // Busca o ID da variável de ambiente pública do Next.js
+    const formspreeId = process.env.NEXT_PUBLIC_FORMSPREEE_ID || "placeholder";
+
+    fetch(`https://formspree.io/f/${formspreeId}`, {
       method: "POST",
       body: data,
       headers: { Accept: "application/json" },
@@ -31,13 +35,11 @@ export default function Contato() {
   };
 
   return (
-    // Reduzi o padding vertical de py-20/28 para py-10/14 (metade)
     <section 
       id="contato" 
       className="bg-[oklch(0.72_0.12_85)] px-6 py-10 lg:px-12 lg:py-14"
     >
       <div className="mx-auto max-w-6xl">
-        {/* Reduzi a margem inferior do título */}
         <div className="mb-8 lg:mb-10">
           <h2 className="mb-2 font-serif text-[clamp(1.5rem,3vw+0.5rem,2.5rem)] font-semibold leading-[1.1] tracking-[-0.02em] text-ink-rich [text-wrap:balance]">
             Entre em contato
@@ -86,19 +88,29 @@ export default function Contato() {
               />
             </label>
 
-            <button
-              type="submit"
-              disabled={status === "sending"}
-              className="h-10 w-fit rounded-full bg-primary px-8 text-xs font-semibold text-white transition-opacity hover:opacity-90 disabled:opacity-60"
-            >
-              {status === "sending" ? "Enviando..." : "Enviar mensagem"}
-            </button>
+            <div className="flex items-center gap-4">
+              <button
+                type="submit"
+                disabled={status === "sending"}
+                className="h-10 w-fit rounded-full bg-primary px-8 text-xs font-semibold text-white transition-opacity hover:opacity-90 disabled:opacity-60"
+              >
+                {status === "sending" ? "Enviando..." : "Enviar mensagem"}
+              </button>
+
+              {/* Feedbacks Visuais Rápidos para o Usuário */}
+              {status === "success" && (
+                <p className="text-xs font-bold text-emerald-800 animate-fade-in">✓ Mensagem enviada com sucesso!</p>
+              )}
+              {status === "error" && (
+                <p className="text-xs font-bold text-rose-800 animate-fade-in">✕ Sistema temporariamente disponível, tente mais tarde!.</p>
+              )}
+            </div>
           </form>
 
           <aside className="flex flex-col gap-4 rounded-xl bg-bg p-6 border border-border">
             <div>
               <p className="text-[10px] font-bold tracking-widest text-muted uppercase">WhatsApp</p>
-              <a href="https://wa.me/5583987911703" target="_blank" className="text-sm font-medium text-primary">
+              <a href="https://wa.me/5583987911703" target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-primary">
                 (83) 98791-1703
               </a>
             </div>
@@ -111,7 +123,7 @@ export default function Contato() {
             <div>
               <p className="text-[10px] font-bold tracking-widest text-muted uppercase">Endereço</p>
               <a 
-                href="https://www.google.com/maps/search/?api=1&query=Av.+Flávio+Ribeiro+Coutinho,210+-+Centro,+Santa+Rita+-+PB" 
+                href="https://maps.app.goo.gl/GjNGfXB8YZZhVYAj6" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="block text-sm font-medium text-primary hover:underline"

@@ -7,18 +7,10 @@ import Image from "next/image";
 const slideImages = ["/images/bg-hero1.webp", "/images/bg-hero2.webp", "/images/bg-hero3.webp"];
 
 const metricsData = [
-  { target: 17, suffix: "+", label: "Anos de advocacia criminal" },
-  { target: 24, suffix: "h", label: "Plantão ininterrupto" },
-  { target: 4, suffix: "+", label: "Distinções honoríficas" },
-  { target: 3, suffix: "", label: "Associações jurídicas nacionais" },
-];
-
-// Central de Links (Estilo Linktree) para canais externos/rápidos
-const treeLinks = [
-  { label: "WhatsApp: Plantão 24h", href: "https://wa.me/seu-numero", icon: "💬" },
-  { label: "Agendar Consulta Jurídica", href: "#contato", icon: "📅" },
-  { label: "Siga no Instagram", href: "https://instagram.com/seu-perfil", icon: "📸" },
-  { label: "Localização do Escritório", href: "https://maps.google.com", icon: "📍" },
+  { target: 500, suffix: "+", label: "Consultorias Júridicas" },
+  { target: 100, suffix: "%", label: "Atendimento Personalizado" },
+  { target: 24, suffix: "h", label: "Plantão de Urgência" },
+  { target: 100, suffix: "%", label: "confidencialidade" },
 ];
 
 function AnimatedNumber({ target }: { target: number }) {
@@ -78,32 +70,13 @@ export default function Hero() {
             Atendimento personalizado e soluções jurídicas seguras para proteger o que é mais importante para você.
           </p>
           
-          <div className="flex flex-wrap gap-3 mb-8 opacity-0 animate-[fadeIn_600ms_cubic-bezier(0.16,1,0.3,1)_400ms_forwards]">
+          <div className="flex flex-wrap gap-3 opacity-0 animate-[fadeIn_600ms_cubic-bezier(0.16,1,0.3,1)_400ms_forwards]">
             <a href="#contato" className="inline-flex h-11 items-center rounded-sm bg-accent px-6 text-xs font-bold uppercase tracking-wide text-white transition-all duration-300 hover:bg-accent-dim focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent shadow-[0_4px_20px_oklch(0.72_0.12_85/0.3)]">
               Agende uma consulta
             </a>
             <a href="#servicos" className="inline-flex h-11 items-center rounded-sm border border-white/20 bg-white/5 px-6 text-xs font-bold uppercase tracking-wide text-white transition-all duration-300 hover:border-white/40 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
               Nossos serviços
             </a>
-          </div>
-
-          {/* CENTRAL DE LINKS RáPIDOS (ESTILO LINKTREE) */}
-          <div className="w-full flex flex-col gap-2 max-w-md opacity-0 animate-[fadeIn_600ms_cubic-bezier(0.16,1,0.3,1)_500ms_forwards]">
-            {treeLinks.map((link, idx) => (
-              <a
-                key={idx}
-                href={link.href}
-                target={link.href.startsWith("http") ? "_blank" : "_self"}
-                rel="noopener noreferrer"
-                className="flex items-center justify-between w-full px-4 py-3 text-xs md:text-sm font-medium tracking-wide text-white bg-white/5 border border-white/10 rounded-sm hover:bg-white/10 hover:border-accent/40 transition-all duration-200"
-              >
-                <div className="flex items-center gap-3">
-                  <span>{link.icon}</span>
-                  <span>{link.label}</span>
-                </div>
-                <span className="text-white/30 text-xs">➔</span>
-              </a>
-            ))}
           </div>
         </div>
 
