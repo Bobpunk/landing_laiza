@@ -47,11 +47,11 @@ export default function DireitoDaFamilia() {
 
           {/* 1. TEXTO PRINCIPAL */}
           <h1 className="mb-3 font-serif text-[clamp(2rem,3.5vw,3.2rem)] font-semibold leading-[1.15] tracking-[-0.02em] text-white [text-wrap:balance] opacity-0 animate-[fadeIn_600ms_cubic-bezier(0.16,1,0.3,1)_200ms_forwards]">
-            Acolhimento e equilíbrio<br />para proteger o que<br />realmente importa
+            Sensibilidade,<br />amparo e respeito<br />para o seu recomeço
           </h1>
           
           <p className="mb-6 max-w-[48ch] text-sm leading-relaxed text-slate-300 lg:text-base opacity-0 animate-[fadeIn_600ms_cubic-bezier(0.16,1,0.3,1)_300ms_forwards]">
-            Conflitos familiares exigem mais do que conhecimento técnico: demandam sensibilidade e escuta ativa. Oferecemos suporte estratégico e pacificador em divórcios, partilha de bens, definição de guarda, pensão alimentícia e inventários, buscando sempre soluções equilibradas.
+            Decisões e transições familiares mexem com o que temos de mais valioso: nossas relações e nossa paz de espírito. Mais do que resolver questões como divórcio, guarda, pensão ou inventário, nosso papel é ouvir suas angústias com paciência e conduzir cada etapa com a delicadeza e o respeito que sua história merece.
           </p>
 
           {/* 2. [MOBILE ONLY] Foto inserida exatamente após o texto principal */}
@@ -64,11 +64,11 @@ export default function DireitoDaFamilia() {
             <div className="mb-4 h-[1px] w-16 bg-[#C5A059]" />
             
             <h2 className="text-lg font-serif font-semibold text-white mb-1">
-              Atravessando uma transição difícil na família?
+              Sua paz e o futuro de quem você ama merecem proteção.
             </h2>
             
             <p className="mb-5 text-xs text-slate-300 max-w-[45ch] leading-relaxed">
-              Resguarde seus direitos e preserve as relações de quem você ama com um acompanhamento próximo, ético e focado no bem-estar de todos os envolvidos.
+              Atravessar uma mudança familiar não precisa ser um processo de desgaste e sofrimento. Estamos aqui para estender a mão e garantir um caminho seguro, ético e focado no bem-estar e na dignidade de todos os envolvidos.
             </p>
 
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
@@ -102,20 +102,22 @@ export default function DireitoDaFamilia() {
   );
 }
 
+// Componente auxiliar interno para renderizar a foto
 function FotoAdvogada() {
   return (
-    <div className="relative w-full aspect-[4/5] overflow-hidden rounded-xl opacity-0 animate-[slideIn_1200ms_cubic-bezier(0.22,1,0.36,1)_100ms_forwards] shadow-2xl shadow-black/50">
-      <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/30 to-transparent z-10 pointer-events-none" />
+    <div className="relative mx-auto w-full max-w-[195px] sm:max-w-[225px] lg:max-w-[255px] opacity-0 animate-[slideIn_1200ms_cubic-bezier(0.22,1,0.36,1)_100ms_forwards]">
       <Image 
-        src="/images/foto-1.jpeg" 
+        src="/images/foto-2.webp" 
         alt="Dra. Laiza Batista - Advocacia Humanizada" 
-        fill 
-        sizes="(max-width: 1024px) 100vw, 320px" 
-        className="object-cover object-top" 
+        width={255}
+        height={320}
+        sizes="(max-width: 1024px) 100vw, 255px"
+        className="w-full h-auto rounded-2xl object-contain"
         priority 
       />
-      <div className="absolute inset-0 rounded-xl border border-[#C5A059]/30 pointer-events-none z-20 m-2" />
-      <div className="absolute bottom-4 left-4 right-4 z-20 text-center bg-slate-950/80 backdrop-blur-sm border border-[#C5A059]/20 py-1.5 px-3 rounded-md">
+      
+      {/* Tag de assinatura flutuante integrada, embaixo da imagem */}
+      <div className="absolute bottom-4 left-4 right-4 z-20 text-center bg-slate-950/85 backdrop-blur-sm border border-[#C5A059]/20 py-1.5 px-3 rounded-md shadow-lg">
         <p className="font-serif text-xs font-semibold text-white tracking-wide">Dra. Laiza Batista</p>
         <p className="text-[8px] font-bold uppercase tracking-[0.15em] text-[#C5A059] mt-0.5">Advocacia Humanizada</p>
       </div>

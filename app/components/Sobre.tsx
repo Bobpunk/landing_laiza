@@ -8,8 +8,12 @@ export default function Sobre() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    // Gatilho de animação imediato ou via interseção simples
-    setIsVisible(true);
+    // Corrige o erro do ESLint agendando a execução para o próximo ciclo de renderização
+    const handle = requestAnimationFrame(() => {
+      setIsVisible(true);
+    });
+
+    return () => cancelAnimationFrame(handle);
   }, []);
 
   return (

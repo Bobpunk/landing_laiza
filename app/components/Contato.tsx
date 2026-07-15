@@ -15,10 +15,8 @@ export default function Contato() {
     const form = e.currentTarget;
     const data = new FormData(form);
 
-    // Busca o ID da variável de ambiente pública do Next.js
-    const formspreeId = process.env.NEXT_PUBLIC_FORMSPREEE_ID || "placeholder";
-
-    fetch(`https://formspree.io/f/${formspreeId}`, {
+    // Enviando diretamente para o link completo do seu formulário no Formspree
+    fetch("https://formspree.io/f/xeeyegro", {
       method: "POST",
       body: data,
       headers: { Accept: "application/json" },
@@ -102,7 +100,7 @@ export default function Contato() {
                 <p className="text-xs font-bold text-emerald-800 animate-fade-in">✓ Mensagem enviada com sucesso!</p>
               )}
               {status === "error" && (
-                <p className="text-xs font-bold text-rose-800 animate-fade-in">✕ Sistema temporariamente disponível, tente mais tarde!.</p>
+                <p className="text-xs font-bold text-rose-800 animate-fade-in">✕ Sistema temporariamente indisponível, tente mais tarde.</p>
               )}
             </div>
           </form>
