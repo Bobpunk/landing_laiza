@@ -6,6 +6,7 @@ const areas = [
   {
     id: "01",
     title: "Direito do Trabalho",
+    slug: "direito-do-trabalho", // <-- Novo campo para a nossa rota real
     description:
       "Defesa rigorosa dos direitos trabalhistas, atuando em rescisões, horas extras, assédio moral e litígios complexos.",
     icon: "/images/servico-box3-no-bg.png", 
@@ -13,6 +14,7 @@ const areas = [
   {
     id: "02",
     title: "Direito Criminal",
+    slug: "direito-criminal", // <-- Deixe o slug preparado para as próximas páginas
     description:
       "Atuação ágil, combativa e sob sigilo absoluto em inquéritos policiais, audiências de custódia e processos penais.",
     icon: "/images/servico-box3-no-bg.png",
@@ -20,6 +22,7 @@ const areas = [
   {
     id: "03",
     title: "Direito Bancário",
+    slug: "direito-bancario", // <-- Deixe o slug preparado
     description:
       "Proteção patrimonial contra abusos financeiros, englobando revisão de juros, fraudes e renegociação de contratos.",
     icon: "/images/servico-box3-no-bg.png",
@@ -27,6 +30,7 @@ const areas = [
   {
     id: "04",
     title: "Direito da Família",
+    slug: "direito-da-familia", // <-- Deixe o slug preparado
     description:
       "Condução estratégica e humanizada de divórcios, guarda, pensão alimentícia e partilha de bens.",
     icon: "/images/servico-box3-no-bg.png",
@@ -74,13 +78,11 @@ export default function Servicos() {
               </p>
 
               {/* 
-                REDIRECIONAMENTO PARA O NOT-FOUND:
-                - Trocado a tag <a> por <Link> do Next.js.
-                - Definido href para uma subrota de serviços não existente.
-                - Mantido todas as suas classes de estilização originais.
+                REDIRECIONAMENTO CORRIGIDO:
+                - Agora aponta de forma inteligente para a pasta `/atuacao/[slug]`
               */}
               <Link
-                href={`/servicos/${area.id}`}
+                href={`/atuacao/${area.slug}`}
                 className="mt-auto w-full max-w-[180px] rounded-md bg-accent py-3 text-sm font-medium text-white text-center transition-opacity duration-300 hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
               >
                 Saiba Mais
