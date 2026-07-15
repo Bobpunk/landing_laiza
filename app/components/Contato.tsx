@@ -3,7 +3,7 @@
 
 import { useState, type FormEvent } from "react";
 
-type Status = "idle" | "sending" | "success" | "error";
+type Status = "idle" | "sending" | "success" | "error" | "validation-error";
 
 export default function Contato() {
   const [status, setStatus] = useState<Status>("idle");
@@ -14,6 +14,29 @@ export default function Contato() {
 
     const form = e.currentTarget;
     const data = new FormData(form);
+
+    const nome = data.get("nome")?.toString().trim();
+    const contato = data.get("contato")?.toString().trim() || "";
+    const mensagem = data.get("mensagem")?.toString().trim();
+
+    // 1. Validação simples de campos vazios
+    if (!nome || !contato || !mensagem) {
+      setStatus("validation-error");
+      return;
+    }
+
+    // 2. Validação rigorosa do campo de contato (Aceita e-mail válido OU telefone com DDD)
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    
+    // Aceita formatos como: 83987911703, (83) 98791-1703, 83 98791-1703, etc. (mínimo 10 e máximo 11 dígitos numéricos líquidos)
+    const apenasNumeros = contato.replace(/\D/g, "");
+    const isTelefoneValido = apenasNumeros.length === 10 || apenasNumeros.length === 11;
+    const isEmailValido = emailRegex.test(contato);
+
+    if (!isEmailValido && !isTelefoneValido) {
+      setStatus("validation-error");
+      return;
+    }
 
     // Enviando diretamente para o link completo do seu formulário no Formspree
     fetch("https://formspree.io/f/xeeyegro", {
@@ -50,7 +73,6 @@ export default function Contato() {
         <div className="grid gap-8 lg:grid-cols-[1fr_360px] lg:gap-12">
           <form
             onSubmit={handleSubmit}
-            noValidate
             className="flex flex-col gap-4"
           >
             <div className="grid gap-4 sm:grid-cols-2">
@@ -64,17 +86,19 @@ export default function Contato() {
                   className="h-10 rounded-lg border border-border bg-bg px-4 text-sm text-ink placeholder:text-muted-light focus:border-primary focus:outline-none"
                 />
               </label>
+              
               <label className="flex flex-col gap-1">
                 <span className="text-xs font-medium text-ink">Contato</span>
                 <input
                   type="text"
                   name="contato"
                   required
-                  placeholder="Email ou telefone"
+                  placeholder="E-mail ou telefone com DDD"
                   className="h-10 rounded-lg border border-border bg-bg px-4 text-sm text-ink placeholder:text-muted-light focus:border-primary focus:outline-none"
                 />
               </label>
             </div>
+            
             <label className="flex flex-col gap-1">
               <span className="text-xs font-medium text-ink">Mensagem</span>
               <textarea
@@ -86,7 +110,7 @@ export default function Contato() {
               />
             </label>
 
-            <div className="flex items-center gap-4">
+            <div className="flex flex-wrap items-center gap-4">
               <button
                 type="submit"
                 disabled={status === "sending"}
@@ -98,6 +122,9 @@ export default function Contato() {
               {/* Feedbacks Visuais Rápidos para o Usuário */}
               {status === "success" && (
                 <p className="text-xs font-bold text-emerald-800 animate-fade-in">✓ Mensagem enviada com sucesso!</p>
+              )}
+              {status === "validation-error" && (
+                <p className="text-xs font-bold text-amber-800 animate-fade-in">⚠ Insira um e-mail válido ou telefone com DDD.</p>
               )}
               {status === "error" && (
                 <p className="text-xs font-bold text-rose-800 animate-fade-in">✕ Sistema temporariamente indisponível, tente mais tarde.</p>
