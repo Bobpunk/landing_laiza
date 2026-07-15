@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 
 const navLinks = [
   { label: "Início", href: "#hero" },
@@ -12,6 +12,11 @@ const navLinks = [
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
+  const previousFocusRef = useRef<HTMLElement | null>(null);
+
+  const close = useCallback(() => setOpen(false), []);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 32);
@@ -25,13 +30,50 @@ export default function Nav() {
   }, [open]);
 
   useEffect(() => {
-    if (!open) return;
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setOpen(false);
+    const main = document.querySelector("#main-content");
+    const footer = document.querySelector("footer");
+    if (main) main.setAttribute("aria-hidden", String(open));
+    if (footer) footer.setAttribute("aria-hidden", String(open));
+    return () => {
+      if (main) main.removeAttribute("aria-hidden");
+      if (footer) footer.removeAttribute("aria-hidden");
     };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
   }, [open]);
+
+  useEffect(() => {
+    if (open) {
+      previousFocusRef.current = document.activeElement as HTMLElement;
+      const firstLink = menuRef.current?.querySelector<HTMLAnchorElement>("a");
+      requestAnimationFrame(() => firstLink?.focus());
+    } else if (previousFocusRef.current) {
+      previousFocusRef.current.focus();
+      previousFocusRef.current = null;
+    }
+  }, [open]);
+
+  useEffect(() => {
+    if (!open) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        close();
+        return;
+      }
+      if (e.key !== "Tab" || !menuRef.current) return;
+      const focusable = menuRef.current.querySelectorAll<HTMLElement>("a, button, input, [tabindex]:not([tabindex='-1'])");
+      if (focusable.length === 0) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [open, close]);
 
   return (
     <header
@@ -83,6 +125,7 @@ export default function Nav() {
         </ul>
 
         <button
+          ref={buttonRef}
           className="flex h-10 w-10 items-center justify-center rounded-md md:hidden"
           onClick={() => setOpen(!open)}
           aria-label={open ? "Fechar menu" : "Abrir menu"}
@@ -109,7 +152,7 @@ export default function Nav() {
 
       {/* Menu Mobile */}
       {open && (
-        <div className="absolute top-full left-0 w-full border-t border-white/10 bg-ink-rich md:hidden shadow-xl">
+        <div ref={menuRef} className="absolute top-full left-0 w-full border-t border-white/10 bg-ink-rich md:hidden shadow-xl" role="dialog" aria-modal="true" aria-label="Menu de navegação">
           <ul className="flex flex-col px-6 py-6 gap-2">
             {navLinks.map((link) => (
               <li key={link.href}>

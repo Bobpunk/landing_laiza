@@ -18,15 +18,15 @@ export default function Footer() {
       {/* Redução do py-12 para py-6 (Corta o respiro gigante do topo e base) */}
       <div className="mx-auto w-full max-w-6xl px-6 py-3 lg:px-12">
         
-        {/* Linha principal: Gap reduzido de 10 para 6 no mobile */}
-        <div className="flex w-full flex-col items-center gap-6 lg:flex-row lg:justify-between">
+        {/* Linha principal */}
+        <div className="flex w-full flex-col items-center gap-6 lg:flex-row lg:items-start lg:justify-between">
           
           {/* 1. Coluna Fantasma (Esquerda) */}
           <div className="hidden lg:block lg:flex-1"></div>
 
           {/* 2. DIVOAB: Marca + informações + aviso legal */}
           {/* Paddings internos reduzidos (p-2 sm:p-4) e gap de 6 para 4 */}
-          <div id="divoab" className="flex flex-col items-center gap-4 p-2 sm:p-4 lg:-translate-x-[-0px] lg:flex-none">
+          <div id="divoab" className="flex flex-col items-center gap-4 p-2 sm:p-4 lg:flex-none">
             
             <div className="flex flex-row items-center gap-4 sm:gap-6">
               <a
@@ -63,8 +63,7 @@ export default function Footer() {
           </div>
 
           {/* 3. DIVNAV: Navegação (Direita) */}
-          {/* Paddings reduzidos (p-2 sm:p-4) para acompanhar a nova escala */}
-          <div id="divnav" className="flex w-full justify-center lg:flex-1 lg:justify-end lg:translate-x-[50px] lg:-translate-y-[70px]">
+          <div id="divnav" className="flex w-full justify-center lg:flex-1 lg:justify-end lg:self-start lg:pt-6">
             <nav
               aria-label="Navegação de rodapé"
               className="flex flex-row items-center gap-6 p-2 sm:p-4"

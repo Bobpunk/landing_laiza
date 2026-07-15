@@ -1,12 +1,13 @@
 // app/components/Contato.tsx
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useState, useRef, type FormEvent } from "react";
 
 type Status = "idle" | "sending" | "success" | "error" | "validation-error";
 
 export default function Contato() {
   const [status, setStatus] = useState<Status>("idle");
+  const contatoRef = useRef<HTMLInputElement>(null);
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -35,11 +36,11 @@ export default function Contato() {
 
     if (!isEmailValido && !isTelefoneValido) {
       setStatus("validation-error");
+      contatoRef.current?.focus();
       return;
     }
 
-    // Enviando diretamente para o link completo do seu formulário no Formspree
-    fetch("https://formspree.io/f/xeeyegro", {
+    fetch(form.action, {
       method: "POST",
       body: data,
       headers: { Accept: "application/json" },
@@ -58,7 +59,7 @@ export default function Contato() {
   return (
     <section 
       id="contato" 
-      className="bg-[oklch(0.72_0.12_85)] px-6 py-10 lg:px-12 lg:py-14"
+      className="bg-accent px-6 py-10 lg:px-12 lg:py-14"
     >
       <div className="mx-auto max-w-6xl">
         <div className="mb-8 lg:mb-10">
@@ -73,6 +74,8 @@ export default function Contato() {
         <div className="grid gap-8 lg:grid-cols-[1fr_360px] lg:gap-12">
           <form
             onSubmit={handleSubmit}
+            action="https://formspree.io/f/xeeyegro"
+            method="POST"
             className="flex flex-col gap-4"
           >
             <div className="grid gap-4 sm:grid-cols-2">
@@ -92,6 +95,7 @@ export default function Contato() {
                 <input
                   type="text"
                   name="contato"
+                  ref={contatoRef}
                   required
                   placeholder="E-mail ou telefone com DDD"
                   className="h-10 rounded-lg border border-border bg-bg px-4 text-sm text-ink placeholder:text-muted-light focus:border-primary focus:outline-none"

@@ -1,32 +1,36 @@
 // app/components/Hero.tsx
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useRef } from "react";
 import Image from "next/image";
+import { useSlideshow } from "../hooks/useSlideshow";
 
 const slideImages = ["/images/bg-hero1.webp", "/images/bg-hero2.webp", "/images/bg-hero3.webp"];
 
 const metricsData = [
-  { target: 500, suffix: "+", label: "Consultorias Júridicas" },
+  { target: 500, suffix: "+", label: "Consultorias Jurídicas" },
   { target: 100, suffix: "%", label: "Atendimento Personalizado" },
   { target: 24, suffix: "h", label: "Plantão de Urgência" },
-  { target: 100, suffix: "%", label: "confidencialidade" },
+  { target: 100, suffix: "%", label: "Confidencialidade" },
 ];
 
 function AnimatedNumber({ target }: { target: number }) {
-  const [count, setCount] = useState(0);
+  const ref = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
-    const end = target;
-    const duration = end < 10 ? 800 : 1500; 
+    const el = ref.current;
+    if (!el) return;
+    const displayEl: HTMLElement = el;
+
+    const duration = target < 10 ? 800 : 1500;
     const startTime = performance.now();
 
     function updateNumber(now: number) {
       const elapsed = now - startTime;
       const progress = Math.min(elapsed / duration, 1);
       const easeOutQuad = (t: number) => t * (2 - t);
-      
-      setCount(Math.floor(easeOutQuad(progress) * end));
+
+      displayEl.textContent = String(Math.floor(easeOutQuad(progress) * target));
 
       if (progress < 1) requestAnimationFrame(updateNumber);
     }
@@ -34,18 +38,11 @@ function AnimatedNumber({ target }: { target: number }) {
     requestAnimationFrame(updateNumber);
   }, [target]);
 
-  return <>{count}</>;
+  return <span ref={ref}>0</span>;
 }
 
 export default function Hero() {
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slideImages.length);
-    }, 5000);
-    return () => clearInterval(timer);
-  }, []);
+  const { currentSlide } = useSlideshow(slideImages, 5000);
 
   return (
     <section id="hero" className="relative flex flex-col h-auto overflow-hidden px-6 pt-12 pb-10 lg:px-12 lg:pt-16">
@@ -53,8 +50,9 @@ export default function Hero() {
         <div
           key={src}
           className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${index === currentSlide ? "opacity-100" : "opacity-0"}`}
+          aria-hidden={index !== currentSlide}
         >
-          <Image src={src} alt={`Background slide ${index + 1}`} fill className="object-cover object-center" priority={index === 0} />
+          <Image src={src} alt={`Background slide ${index + 1}`} fill sizes="100vw" className="object-cover object-center" priority={index === 0} />
         </div>
       ))}
 
@@ -98,7 +96,7 @@ export default function Hero() {
                   <AnimatedNumber target={item.target} />
                   <span>{item.suffix}</span>
                 </div>
-                <p className="mt-1 max-w-[20ch] text-[9px] font-bold uppercase tracking-[0.2em] text-[#C5A059] opacity-90 sm:text-xs">
+                <p className="mt-1 max-w-[20ch] text-[10px] font-bold uppercase tracking-[0.2em] text-[#C5A059] opacity-90 sm:text-xs">
                   {item.label}
                 </p>
               </div>

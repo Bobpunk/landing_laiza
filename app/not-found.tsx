@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function NotFound() {
   return (
-    <div className="relative min-h-screen w-full bg-[#1e1a17] text-white flex flex-col items-center justify-center px-6 text-center overflow-hidden">
+    <div id="main-content" className="relative min-h-screen w-full bg-[#1e1a17] text-white flex flex-col items-center justify-center px-6 text-center overflow-hidden">
       
       {/* Overlay sutil para seguir o padrão do Hero */}
       <div className="absolute inset-0 bg-slate-950/60 z-0 pointer-events-none" />
@@ -19,15 +19,15 @@ export default function NotFound() {
 
         {/* Título de Status */}
         <p className="text-[11px] font-sans font-bold uppercase tracking-[0.3em] text-[#C5A059] mb-3">
-          Área em Desenvolvimento
+          Erro 404
         </p>
         
         <h1 className="font-serif text-3xl font-light tracking-tight text-white mb-4">
-          Página em Construção
+          Página não encontrada
         </h1>
         
         <p className="text-sm leading-relaxed text-slate-400 mb-8 max-w-[35ch]">
-          Estamos refinando nossa plataforma para oferecer a melhor experiência jurídica digital. Em breve, este conteúdo estará disponível.
+          A página que você procura não existe ou foi movida. Vamos ajudá-lo a encontrar o que precisa.
         </p>
 
         {/* Ações Rápidas de Escape */}

@@ -66,6 +66,7 @@ export default function Servicos() {
                   fill
                   className="object-contain"
                   sizes="64px"
+                  loading="lazy"
                 />
               </div>
               

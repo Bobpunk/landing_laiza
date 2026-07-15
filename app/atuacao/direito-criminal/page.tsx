@@ -1,31 +1,25 @@
 // app/atuacao/direito-criminal/page.tsx
 "use client";
 
-import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useSlideshow } from "../../hooks/useSlideshow";
 
 const slideImages = ["/images/bg-hero1.webp", "/images/bg-hero2.webp", "/images/bg-hero3.webp"];
 
 export default function DireitoCriminal() {
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slideImages.length);
-    }, 5000);
-    return () => clearInterval(timer);
-  }, []);
+  const { currentSlide } = useSlideshow(slideImages, 5000);
 
   return (
-    <main className="min-h-screen lg:h-screen bg-slate-950 flex flex-col justify-center relative overflow-hidden px-6 py-8 lg:px-12">
+    <main id="main-content" className="min-h-screen lg:h-screen bg-slate-950 flex flex-col justify-center relative overflow-hidden px-6 py-8 lg:px-12">
       {/* Background Slideshow */}
       {slideImages.map((src, index) => (
         <div
           key={src}
           className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${index === currentSlide ? "opacity-100" : "opacity-0"}`}
+          aria-hidden={index !== currentSlide}
         >
-          <Image src={src} alt={`Background slide ${index + 1}`} fill className="object-cover object-center" priority={index === 0} />
+          <Image src={src} alt={`Background slide ${index + 1}`} fill sizes="100vw" className="object-cover object-center" priority={index === 0} />
         </div>
       ))}
 

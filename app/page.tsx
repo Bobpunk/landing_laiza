@@ -12,12 +12,8 @@ export default function Home() {
     <>
       <Nav />
       {/* O flex-col é obrigatório para que as divs empilhem corretamente */}
-      <main className="flex flex-col">
+      <main id="main-content" className="flex flex-col">
         <Hero />
-        
-        {/* Posicionado logo abaixo do Hero com o divisor padrão */}
-        <div className="divisor-global" />
-        
         
         <div className="divisor-global" />
         

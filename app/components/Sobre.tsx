@@ -26,7 +26,7 @@ export default function Sobre() {
           
           {/* Coluna da Imagem Animada e Vibrante */}
           <div 
-            className={`order-last lg:order-first mx-auto w-full max-w-[500px] transition-all duration-1000 ease-out transform ${
+            className={`order-last lg:order-first mx-auto w-full max-w-full lg:max-w-[500px] transition-all duration-1000 ease-out transform ${
               isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"
             }`}
           >
@@ -43,7 +43,6 @@ export default function Sobre() {
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
-                priority
               />
               
               {/* Borda interna estilizada */}

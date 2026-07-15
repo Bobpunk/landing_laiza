@@ -79,7 +79,7 @@ function Icon({ type }: { type: string }) {
 
 export default function LinkTreePage() {
   return (
-    <div className="relative min-h-screen w-full bg-[#1e1a17] text-white flex flex-col items-center px-6 py-12 overflow-x-hidden">
+    <div id="main-content" className="relative min-h-screen w-full bg-[#1e1a17] text-white flex flex-col items-center px-6 py-12 overflow-x-hidden">
       <div className="absolute inset-0 bg-slate-950/40 z-0 pointer-events-none" />
 
       <div className="relative z-10 w-full max-w-md flex flex-col items-center flex-1 justify-center">

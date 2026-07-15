@@ -73,6 +73,9 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
       <body className="min-h-dvh flex flex-col font-sans antialiased">
+        <a href="#main-content" className="fixed -translate-y-full left-4 top-2 z-[100] rounded-sm bg-accent px-4 py-2 text-xs font-bold uppercase tracking-wide text-white transition-transform focus:translate-y-0">
+          Pular para o conteúdo
+        </a>
         {children}
         <WhatsAppButton />
       </body>
