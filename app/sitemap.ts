@@ -11,7 +11,7 @@ type Route = {
 
 const routes: Route[] = [
   {
-    path: "/",
+    path: "", // Alterado de "/" para vazio para evitar "laizaadv.com.br//" na rota principal
     priority: 1.0,
     changeFrequency: "monthly",
   },
@@ -45,10 +45,16 @@ const routes: Route[] = [
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
 
-  return routes.map((route) => ({
-    url: `${BASE_URL}${route.path}`,
-    lastModified,
-    changeFrequency: route.changeFrequency,
-    priority: route.priority,
-  }));
+  return routes.map((route) => {
+    // Garante que a URL final nunca tenha barras duplicadas (ex: https://laizaadv.com.br//atuacao)
+    const cleanPath = route.path.startsWith("/") ? route.path : `/${route.path}`;
+    const url = route.path === "" ? BASE_URL : `${BASE_URL}${cleanPath}`;
+
+    return {
+      url,
+      lastModified,
+      changeFrequency: route.changeFrequency,
+      priority: route.priority,
+    };
+  });
 }
