@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useSlideshow } from "../../hooks/useSlideshow";
 
-const slideImages = ["/images/bg-hero1.webp", "/images/bg-hero2.webp", "/images/bg-hero3.webp"];
+const slideImages = ["/images/slidedireitofam1.jpeg", "/images/slidedireitofam2.jpeg", "/images/slidedireitofam3.jpeg"];
 
 export default function DireitoDaFamilia() {
   const { currentSlide } = useSlideshow(slideImages, 5000);

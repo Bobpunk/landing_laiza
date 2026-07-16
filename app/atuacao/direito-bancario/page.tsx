@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useSlideshow } from "../../hooks/useSlideshow";
 
-const slideImages = ["/images/slidedireitodotrab1.jpeg", "/images/slidedireitodotrab2.jpeg", "/images/slidedireitodotrab3.jpeg"];
+const slideImages = ["/images/slidedireitobanc1.jpeg", "/images/slidedireitobanc2.jpeg", "/images/slidedireitobanc3.jpeg"];
 
 export default function DireitoBancario() {
   const { currentSlide } = useSlideshow(slideImages, 5000);
